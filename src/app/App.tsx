@@ -4,7 +4,8 @@ import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router'
 import { store } from './store'
 import { router } from '../pages/router'
-
+import "modern-css-reset/dist/reset.css";
+import './styles/index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

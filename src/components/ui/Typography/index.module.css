@@ -1,0 +1,57 @@
+.size-sm {
+  font-size: 0.8125rem; /* 13px */
+}
+.size-md {
+  font-size: 1rem; /* 16px */
+}
+.size-lg {
+  font-size: 1.125rem; /* 18px */
+}
+.size-xl {
+  font-size: 1.375rem; /* 22px */
+}
+.size-xxl {
+  font-size: 1.75rem; /* 28*/
+}
+/* weight */
+.weight-regular {
+  font-weight: 400;
+}
+.weight-medium {
+  font-weight: 500;
+}
+.weight-bold {
+  font-weight: 700;
+}
+
+/* colors */
+.color-primary {
+  color: var(--color-main);
+}
+.color-light {
+  color: var(--color-text-light);
+}
+.color-darkblue {
+  color: var(--color-text-dark-blue);
+}
+.color-title {
+    color: var(--color-text)
+}
+.color-code {
+    color: var(--color-code)
+}
+.color-main {
+    color: var(--color-text-main);
+}
+.color-placeholder {
+    color: var(--color-text-placeholder);
+}
+.color-input {
+    color: var(--color-input-text);
+}
+.color-white {
+  color: #ffffff;
+}
+.uppercase {
+  text-transform: uppercase;
+}
