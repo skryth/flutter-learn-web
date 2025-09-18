@@ -4,12 +4,12 @@ button {
 }
 .color-primary {
     background: var(--color-main);
-    box-shadow: 0 0.25rem 0 0 var(--color-main-shadow);
+    box-shadow: var(--bshadow-primary)
 }
 .color-secondary {
     background: var(--color-bg);
     border: 0.125rem solid var(--color-line);
-    box-shadow: 0 0.25rem 0 0 var(--color-line);
+    box-shadow: var(--bshadow-secondary)
 }
 
 .px-sm {
@@ -27,10 +27,10 @@ button {
 }
 
 .borderRad-sm {
-    border-radius: 0.75rem;
+    border-radius: var(--brad-sm);
 }
 .borderRad-md {
-    border-radius: 1rem;
+    border-radius: var(--brad-md);
 }
 /* effects */
 .color-primary:hover  {
@@ -43,8 +43,8 @@ button:active {
     transform: translateY(2px);
 }
 .color-primary:active  {
-    box-shadow: 0 0.125rem 0 0 var(--color-main-shadow);
+    box-shadow: var(--bshadow-primary-active)
 }
 .color-secondary:active  {
-    box-shadow: 0 0.1rem 0 0 var(--color-line);
+    box-shadow: var(--bshadow-secondary-active)
 }

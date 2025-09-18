@@ -3,6 +3,7 @@
     --color-bg-hover: #f7f5f5;
     --color-text: #4B4B4B;
     --color-main: #5BC7F8;
+    --color-main-light: rgba(91, 198, 248, 0.1); 
     --color-main-hover: #7acff7;
     --color-text-dark-blue: #0B3E71;
     --color-text-light: #777777;
@@ -17,4 +18,15 @@
     --color-empty-check: #C3C3C3;
 
     --font-family: "Inter", sans-serif;
+
+    --brad-sm: 0.75rem;
+    --brad-md: 1rem; 
+
+    --bshadow-primary: 0 0.25rem 0 0 var(--color-main-shadow);
+    --bshadow-secondary: 0 0.25rem 0 0 var(--color-line);
+    --border-secondary: 0.125rem solid var(--color-line);
+    --bshadow-primary-active: 0 0.125rem 0 0 var(--color-main-shadow);
+    --bshadow-secondary-active: 0 0.1rem 0 0 var(--color-line);
+
+    --transition-button: transform .1s ease, background .3s ease, box-shadow .1s ease; 
 }
