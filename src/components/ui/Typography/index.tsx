@@ -4,9 +4,9 @@ import styles from "./index.module.css";
 type Size = "sm" | "md" | "lg" | "xl" | "xxl";
 type Weight = "regular" | "medium" | "bold";
 type Color = "primary" | "light" | "darkblue" | "title" | "code" 
-            | "main" | "placeholder" | "input" | "white";
+| "main" | "placeholder" | "input" | "white";
 
-interface TypographyProps {
+export interface TypographyProps {
   children: React.ReactNode;
   size?: Size;
   weight?: Weight;
