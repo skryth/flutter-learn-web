@@ -1,6 +1,6 @@
 button {
-    transition: transform .3s ease, background .3s ease;
     cursor: pointer;
+    transition: transform .1s ease, background .3s ease, box-shadow .1s ease; 
 }
 .color-primary {
     background: var(--color-main);
@@ -31,4 +31,20 @@ button {
 }
 .borderRad-md {
     border-radius: 1rem;
+}
+/* effects */
+.color-primary:hover  {
+    background: var(--color-main-hover);
+}
+.color-secondary:hover  {
+    background: var(--color-bg-hover);
+}
+button:active {
+    transform: translateY(2px);
+}
+.color-primary:active  {
+    box-shadow: 0 0.125rem 0 0 var(--color-main-shadow);
+}
+.color-secondary:active  {
+    box-shadow: 0 0.1rem 0 0 var(--color-line);
 }

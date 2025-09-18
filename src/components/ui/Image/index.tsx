@@ -10,7 +10,7 @@ export const Image: React.FC<ImageProps> = ({ src, width, height, ...props }) =>
       style={{
         width: `${width / 16}rem`,
         height: `${height ? (height / 16) : (width / 16)}rem`,
-        objectFit: 'cover',
+        objectFit: 'contain',
         objectPosition: 'center'
       }}
       {...props}

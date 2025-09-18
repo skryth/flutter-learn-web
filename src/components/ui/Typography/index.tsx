@@ -19,7 +19,7 @@ export const Typography: React.FC<TypographyProps> = ({
   children,
   size = "md",
   weight = "regular",
-  color = "primary",
+  color = "title",
   as: Tag = "p",
   uppercase = false
 }) => {

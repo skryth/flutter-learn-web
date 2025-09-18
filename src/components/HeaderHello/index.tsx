@@ -11,7 +11,7 @@ const HeaderHello = () => {
         <div className={styles.content}>
           <div className={styles.logo}>
             <Icon name='logo' size={34}/>
-            <Typography as='h1' color='main' size='md' weight='bold' uppercase>
+            <Typography as='h1' color='primary' size='md' weight='bold' uppercase>
               Flutter Learn
             </Typography>
           </div>
