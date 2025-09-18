@@ -1,4 +1,5 @@
 import ContentHello from '../components/ContentHello'
+import Footer from '../components/Footer'
 import HeaderHello from '../components/HeaderHello'
 
 const HelloPage = () => {
@@ -6,6 +7,7 @@ const HelloPage = () => {
     <>
       <HeaderHello />
       <ContentHello />
+      <Footer />
     </>
   )
 }
