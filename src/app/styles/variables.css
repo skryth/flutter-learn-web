@@ -1,0 +1,18 @@
+:root {
+    --color-bg: #ffffff;
+    --color-text: #4B4B4B;
+    --color-main: #5BC7F8;
+    --color-text-dark-blue: #0B3E71;
+    --color-text-light: #777777;
+    --color-main-shadow: #29B0C1;
+    --color-text-main: #1CB0F6;
+    --color-line: #E5E5E5;
+    --color-text-placeholder: #AFAFAF;
+    --color-input-text: #8E8E8E;
+    --color-code: #141414;
+    --color-success: #58CC02;
+    --color-empty-progress: #EAEEF3;
+    --color-empty-check: #C3C3C3;
+
+    --font-family: "Inter", sans-serif;
+}
