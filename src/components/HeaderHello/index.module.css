@@ -14,7 +14,12 @@
     column-gap: 1.3125rem;
 }
 .buttons {
-    display: flex;
+    display: none;
     align-items: center;
     column-gap: 0.8125rem;
+}
+@media (min-width: 40rem) {
+    .buttons {
+        display: flex;
+    }
 }
