@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import Button from '../ui/Button'
 import Container from '../ui/Container'
 import { Icon } from '../ui/Icon'
@@ -9,12 +10,12 @@ const HeaderHello = () => {
     <header className={styles.header}>
       <Container>
         <div className={styles.content}>
-          <div className={styles.logo}>
+          <Link to='/' className={styles.logo}>
             <Icon name='logo' size={34}/>
             <Typography as='h1' color='primary' size='md' weight='bold' uppercase>
               Flutter Learn
             </Typography>
-          </div>
+          </Link>
           <div className={styles.buttons}>
             <Button bg='secondary' color='darkblue' onClick={() => {}}>Войти</Button>
             <Button onClick={() => {}}>Начать</Button>
