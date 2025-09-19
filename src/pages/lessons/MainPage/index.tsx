@@ -3,6 +3,7 @@ import { Typography } from '../../../components/ui/Typography'
 import Container from '../../../components/ui/Container'
 import InputWithButton from '../../../components/InputWithButton'
 import { Icon } from '../../../components/ui/Icon'
+import ListModules from '../../../components/ListModules'
 
 const MainPage = () => {
   return (
@@ -15,6 +16,7 @@ const MainPage = () => {
           </button>
         </InputWithButton>
       </div>
+      <ListModules />
     </Container>
   )
 }
