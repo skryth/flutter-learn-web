@@ -1,7 +1,10 @@
-button {
+.button {
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
     transition: transform .1s ease, background .3s ease, box-shadow .1s ease; 
 }
+
 .color-primary {
     background: var(--color-main);
     box-shadow: var(--bshadow-primary)
@@ -39,7 +42,7 @@ button {
 .color-secondary:hover  {
     background: var(--color-bg-hover);
 }
-button:active {
+.button:active {
     transform: translateY(2px);
 }
 .color-primary:active  {

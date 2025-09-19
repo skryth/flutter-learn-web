@@ -17,8 +17,8 @@ const HeaderHello = () => {
             </Typography>
           </Link>
           <div className={styles.buttons}>
-            <Button bg='secondary' color='darkblue' onClick={() => {}}>Войти</Button>
-            <Button onClick={() => {}}>Начать</Button>
+            <Button bg='secondary' color='darkblue' to='/auth/signin'>Войти</Button>
+            <Button to='/auth/signup'>Начать</Button>
           </div>
         </div>
       </Container>
