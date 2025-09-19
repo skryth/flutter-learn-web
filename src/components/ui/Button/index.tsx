@@ -10,10 +10,11 @@ interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
     children: React.ReactNode;
     onClick?: VoidFunction;
     bg?: BgColor;
-    paddingX?: Size,
-    paddingY?: Size,
-    borderRadius?: Size,
-    to?: string
+    paddingX?: Size;
+    paddingY?: Size;
+    borderRadius?: Size;
+    to?: string;
+    type: 'submit' | 'button'
 }
 const Button: React.FC<ButtonProps> = ({
     children,
@@ -24,7 +25,8 @@ const Button: React.FC<ButtonProps> = ({
     borderRadius = 'sm',
     color = 'white',
     size = 'sm',
-    to
+    to,
+    type = 'button'
 }) => {
     const buttonStyles = `
         ${styles.button}
@@ -49,7 +51,7 @@ const Button: React.FC<ButtonProps> = ({
     )
 
   return (
-    <button className={buttonStyles} type='button' onClick={onClick} >
+    <button className={buttonStyles} type={type} onClick={onClick} >
         <Typography 
             color={color}
             size={size}
