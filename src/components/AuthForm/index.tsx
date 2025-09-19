@@ -15,7 +15,7 @@ interface AuthFormProps {
         text: string;
         to: string;
     };
-    onSubmit: (data: AuthData) => void
+    onSubmit: (authData: AuthData) => void
 }
 const AuthForm: React.FC<AuthFormProps> = ({
     title,

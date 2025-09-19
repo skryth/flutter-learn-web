@@ -1,0 +1,26 @@
+.container {
+    position: relative;
+}
+.avatar {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    column-gap: 0.8125rem;
+    transition: all 0.3s ease;
+    padding: 0.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.avatar:hover {
+    background-color: var(--color-main-light);
+    transform: translateY(-1px);
+}
+.avatar:active {
+    transform: translateY(0);
+}
+.modal {
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+}

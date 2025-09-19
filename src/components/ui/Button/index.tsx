@@ -6,7 +6,7 @@ import styles from './index.module.css'
 type BgColor = "primary" | "secondary";
 type Size = "sm" | "md";
 
-interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
+export interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
     children: React.ReactNode;
     onClick?: VoidFunction;
     bg?: BgColor;
@@ -14,6 +14,7 @@ interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
     paddingY?: Size;
     borderRadius?: Size;
     to?: string;
+    align?: 'center' | 'left' | 'right';
     type?: 'submit' | 'button'
 }
 const Button: React.FC<ButtonProps> = ({
@@ -25,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
     borderRadius = 'sm',
     color = 'white',
     size = 'sm',
+    align = 'center',
     to,
     type = 'button'
 }) => {
@@ -34,6 +36,7 @@ const Button: React.FC<ButtonProps> = ({
         ${styles[`px-${paddingX}`]}    
         ${styles[`py-${paddingY}`]}    
         ${styles[`borderRad-${borderRadius}`]}    
+        ${styles[`align-${align}`]}    
     `;
 
     if (to) return (
