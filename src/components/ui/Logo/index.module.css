@@ -16,12 +16,3 @@
 .logo:active {
     transform: translateY(0);
 }
-
-.logoIcon {
-    transition: all 0.3s ease;
-}
-
-.logo:hover .logoIcon {
-    transform: scale(1.1);
-    color: var(--color-main);
-}

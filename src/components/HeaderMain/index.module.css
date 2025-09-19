@@ -10,14 +10,14 @@
     align-items: center;
 }
 
-.buttons {
+.right {
     display: none;
     align-items: center;
     column-gap: 0.8125rem;
 }
 
 @media (min-width: 40rem) {
-    .buttons {
+    .right {
         display: flex;
         /* animation: fadeInUp 0.6s ease; */
     }

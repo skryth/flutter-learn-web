@@ -1,17 +1,21 @@
-import Button from '../ui/Button'
+import React from 'react'
 import Container from '../ui/Container'
 import Logo from '../ui/Logo'
 import styles from './index.module.css'
+interface HeaderMainProps {
+    children: React.ReactNode
+}
 
-const HeaderHello = () => {
+const HeaderMain: React.FC<HeaderMainProps> = ({
+    children
+}) => {
   return (
     <header className={styles.header}>
       <Container>
         <div className={styles.content}>
           <Logo />
-          <div className={styles.buttons}>
-            <Button bg='secondary' color='darkblue' to='/auth/signin'>Войти</Button>
-            <Button to='/auth/signup'>Начать</Button>
+          <div className={styles.right}>
+            {children}
           </div>
         </div>
       </Container>
@@ -19,4 +23,4 @@ const HeaderHello = () => {
   )
 }
 
-export default HeaderHello
+export default HeaderMain
