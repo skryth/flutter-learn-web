@@ -14,7 +14,7 @@ interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
     paddingY?: Size;
     borderRadius?: Size;
     to?: string;
-    type: 'submit' | 'button'
+    type?: 'submit' | 'button'
 }
 const Button: React.FC<ButtonProps> = ({
     children,
