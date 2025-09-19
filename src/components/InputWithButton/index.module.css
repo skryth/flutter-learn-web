@@ -1,0 +1,12 @@
+.container {
+    position: relative;
+    width: fit-content;
+}
+.container > button {
+    position: absolute;
+    background: transparent;
+    top: 50%;
+    right: 0.875rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

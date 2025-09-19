@@ -10,6 +10,7 @@ const UserAvatar = () => {
     const [isShowModal, setIsShowModal] = useState(false);
     const login = useAppSelector(state => state.user.login);
     const {signOut} = useAuth();
+    
   return (
     <div className={styles.container}>
         <button className={styles.avatar} onClick={() => setIsShowModal(c => !c)}>
