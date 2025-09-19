@@ -18,7 +18,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
             <Typography as='h3' weight='bold' size='lg'>
                 {title}
             </Typography>
-            <div className={styles.bottom}>
+            <div>
                 <div className={styles.progressBar}>
                     <div className={styles.userProgress} style={{
                         width: `${(lessons.completed / lessons.count) * 100}%`

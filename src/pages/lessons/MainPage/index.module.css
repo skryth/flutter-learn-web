@@ -4,3 +4,6 @@
     align-items: center;
     margin-block: 1rem;
 }
+.content {
+    height: 100%;
+}

@@ -4,6 +4,7 @@ import Container from '../../../components/ui/Container'
 import InputWithButton from '../../../components/InputWithButton'
 import { Icon } from '../../../components/ui/Icon'
 import ListModules from '../../../components/ListModules'
+import UserProgress from '../../../components/UserProgress'
 
 const MainPage = () => {
   return (
@@ -16,7 +17,10 @@ const MainPage = () => {
           </button>
         </InputWithButton>
       </div>
-      <ListModules />
+      <div className={styles.content}>
+        <ListModules />
+        <UserProgress />
+      </div>
     </Container>
   )
 }

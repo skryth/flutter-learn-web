@@ -32,7 +32,6 @@ export const Typography: React.FC<TypographyProps> = ({
         ${uppercase ? styles.uppercase: ''}
       `}
     >
-      <p></p>
       {children}
     </Tag>
   );
