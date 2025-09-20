@@ -1,7 +1,7 @@
 export const exampleModules = [
   {
     id: "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
-    title: "Введение в Flutter огромный и длинный заголовк просто жесть",
+    title: "Введение в Flutter",
     description: "Основы Flutter и создание первого приложения",
     order_index: 0,
     lessons: [

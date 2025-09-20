@@ -1,0 +1,46 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 1rem;
+    padding: 1.25rem 1.75rem 0.625rem 1.75rem;
+    border-radius: 0.4375rem;
+    border: 1px solid var(--color-line);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-block: 2.1876rem 1.1876rem;
+}
+
+.card:focus-within {
+    outline: 2px solid var(--color-main);
+    outline-offset: 2px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.4rem;
+}
+.list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+}
+.row {
+    display: flex;
+    align-items: center;
+    column-gap: 0.6875rem;
+}
+.row > a{
+    text-decoration: none;
+}
+.row > a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-text);
+}
+.circle {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: var(--color-empty-progress);
+}
