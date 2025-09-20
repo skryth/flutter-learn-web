@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
         <Typography color='light' weight='medium'>
-            © 2025 Flutter Learn
+            ©2025 Flutter Learn
         </Typography>
         <Typography color='light' weight='medium' as='span'>|</Typography>
         <Link to={''}>

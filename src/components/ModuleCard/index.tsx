@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import type { Module, ModulesStateLesson } from '../../app/store/slices/modulesSlice'
 import { Icon } from '../ui/Icon'
-import ProgressBar from '../ui/ProgressBar'
+import ProgressBar from '../ProgressBar'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 interface ModuleCardProps {

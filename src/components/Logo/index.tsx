@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
-import { Icon } from '../Icon'
-import { Typography } from '../Typography'
+import { Icon } from '../ui/Icon'
+import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 
 const Logo = () => {

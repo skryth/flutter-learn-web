@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../ui/Container'
-import Logo from '../ui/Logo'
 import styles from './index.module.css'
+import Logo from '../Logo'
 interface HeaderMainProps {
     children: React.ReactNode
 }
