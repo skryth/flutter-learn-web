@@ -6,7 +6,7 @@ type Weight = "regular" | "medium" | "bold";
 type Color = "primary" | "light" | "darkblue" | "title" | "code" 
 | "main" | "placeholder" | "input" | "white";
 
-export interface TypographyProps {
+export interface TypographyProps extends React.HTMLAttributes<HTMLParagraphElement> {
   children: React.ReactNode;
   size?: Size;
   weight?: Weight;
@@ -22,6 +22,7 @@ export const Typography: React.FC<TypographyProps> = ({
   color = "title",
   as: Tag = "p",
   uppercase = false,
+  ...props
 }) => {
   return (
     <Tag
@@ -31,6 +32,7 @@ export const Typography: React.FC<TypographyProps> = ({
         ${styles[`color-${color}`]}
         ${uppercase ? styles.uppercase: ''}
       `}
+      {...props}
     >
       {children}
     </Tag>

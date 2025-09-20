@@ -1,0 +1,12 @@
+.img {
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    max-width: 90%;
+}
+.link {
+    color: #505de7;
+    text-decoration: underline;
+}
+.link:hover {
+    text-decoration: none;
+}
