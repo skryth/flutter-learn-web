@@ -10,42 +10,14 @@
     align-items: center;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    column-gap: 1.3125rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 0.5rem;
-    border-radius: 8px;
-}
-
-.logo:hover {
-    background-color: var(--color-main-light);
-    transform: translateY(-1px);
-}
-
-.logo:active {
-    transform: translateY(0);
-}
-
-.logoIcon {
-    transition: all 0.3s ease;
-}
-
-.logo:hover .logoIcon {
-    transform: scale(1.1);
-    color: var(--color-main);
-}
-
-.buttons {
+.right {
     display: none;
     align-items: center;
     column-gap: 0.8125rem;
 }
 
 @media (min-width: 40rem) {
-    .buttons {
+    .right {
         display: flex;
         /* animation: fadeInUp 0.6s ease; */
     }

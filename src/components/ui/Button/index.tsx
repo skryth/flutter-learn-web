@@ -1,40 +1,60 @@
 import React from 'react'
-import styles from './index.module.css'
 import { Typography, type TypographyProps } from '../Typography';
+import { Link } from 'react-router';
+import styles from './index.module.css'
 
 type BgColor = "primary" | "secondary";
 type Size = "sm" | "md";
 
-interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
+export interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
     children: React.ReactNode;
-    onClick: VoidFunction;
+    onClick?: VoidFunction;
     bg?: BgColor;
-    paddingX?: Size,
-    paddingY?: Size,
-    borderRadius?: Size
+    paddingX?: Size;
+    paddingY?: Size;
+    borderRadius?: Size;
+    to?: string;
+    align?: 'center' | 'left' | 'right';
+    type?: 'submit' | 'button'
 }
 const Button: React.FC<ButtonProps> = ({
     children,
-    onClick: onClick,
+    onClick,
     bg = 'primary',
     paddingX = 'md',
     paddingY = 'sm',
     borderRadius = 'sm',
     color = 'white',
-    size = 'sm'
+    size = 'sm',
+    align = 'center',
+    to,
+    type = 'button'
 }) => {
+    const buttonStyles = `
+        ${styles.button}
+        ${styles[`color-${bg}`]}    
+        ${styles[`px-${paddingX}`]}    
+        ${styles[`py-${paddingY}`]}    
+        ${styles[`borderRad-${borderRadius}`]}    
+        ${styles[`align-${align}`]}    
+    `;
+
+    if (to) return (
+        <Link className={buttonStyles} to={to}>
+            <Typography 
+                color={color}
+                size={size}
+                weight='bold'
+                as='span'
+                uppercase
+            >
+                {children}
+            </Typography>
+        </Link>
+    )
+
   return (
-    <button 
-        className={`
-            ${styles.button}
-            ${styles[`color-${bg}`]}    
-            ${styles[`px-${paddingX}`]}    
-            ${styles[`py-${paddingY}`]}    
-            ${styles[`borderRad-${borderRadius}`]}    
-        `}
-        type='button'
-        onClick={onClick}
-    >
+    <button className={buttonStyles} type={type} onClick={onClick} >
         <Typography 
             color={color}
             size={size}

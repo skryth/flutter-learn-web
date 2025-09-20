@@ -21,7 +21,7 @@ export const Typography: React.FC<TypographyProps> = ({
   weight = "regular",
   color = "title",
   as: Tag = "p",
-  uppercase = false
+  uppercase = false,
 }) => {
   return (
     <Tag

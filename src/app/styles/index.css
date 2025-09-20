@@ -7,11 +7,20 @@ body {
   font-family: var(--font-family);
   color: var(--color-text);
   overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
+
 #root {
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
+}
+main {
+  position: relative;
 }

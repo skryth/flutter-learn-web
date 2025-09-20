@@ -4,6 +4,9 @@ import HelloPage from "./HelloPage";
 import HelloLayout from "../app/layouts/HelloLayout";
 import SignInPage from "./auth/SignInPage";
 import SignUpPage from "./auth/SignUpPage";
+import MainLayout from "../app/layouts/MainLayout";
+import MainPage from "./lessons/MainPage";
+import ModulePage from "./lessons/ModulePage";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +25,20 @@ export const router = createBrowserRouter([
                 path: 'auth/signup',
                 element: <SignUpPage />
             },
+        ]
+    },
+    {
+        path: '/modules',
+        element: <MainLayout />,
+        children: [
+            {
+                index: true,
+                element: <MainPage />
+            },
+            {
+                path: ':id',
+                element: <ModulePage />
+            }
         ]
     },
     {

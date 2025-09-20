@@ -16,20 +16,17 @@ const HelloPage = () => {
                   Эффективный, интересный и веселый способ изучения Flutter!
               </Typography>
               <div className={styles.buttons}>
-                  <Button 
-                      onClick={() => {}} 
-                      paddingY='md'
-                  >
-                      Зарегистрироваться
-                  </Button>
-                  <Button 
-                      color='main'
-                      bg='secondary' 
-                      paddingY='md'
-                      onClick={() => {}} 
-                  >
-                      Уже есть аккаунт
-                  </Button>
+                <Button to='/auth/signup' paddingY='md'>
+                    Зарегистрироваться
+                </Button>
+                <Button 
+                    color='main'
+                    bg='secondary' 
+                    paddingY='md'
+                    to='/auth/signin'
+                >
+                    Уже есть аккаунт
+                </Button>
               </div>
           </div>
       </div>

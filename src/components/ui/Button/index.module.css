@@ -1,7 +1,11 @@
-button {
+.button {
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
     transition: transform .1s ease, background .3s ease, box-shadow .1s ease; 
+    text-wrap: nowrap;
 }
+
 .color-primary {
     background: var(--color-main);
     box-shadow: var(--bshadow-primary)
@@ -25,6 +29,16 @@ button {
 .py-md {
     padding-block: 0.9375rem;
 }
+.align-left {
+    text-align: left;
+    min-width: 10rem;
+    padding-left: 0.875rem;
+}
+.align-right {
+    text-align: right;
+    min-width: 10rem;
+    padding-right: 0.875rem;
+}
 
 .borderRad-sm {
     border-radius: var(--brad-sm);
@@ -39,7 +53,7 @@ button {
 .color-secondary:hover  {
     background: var(--color-bg-hover);
 }
-button:active {
+.button:active {
     transform: translateY(2px);
 }
 .color-primary:active  {

@@ -2,7 +2,8 @@ import { Link } from 'react-router'
 import Button from '../ui/Button'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
-interface AuthData {
+import Input from '../ui/Input';
+export interface AuthData {
   login: string;
   password: string;
 }
@@ -14,7 +15,7 @@ interface AuthFormProps {
         text: string;
         to: string;
     };
-    onSubmit: (data: AuthData) => void // todo
+    onSubmit: (authData: AuthData) => void
 }
 const AuthForm: React.FC<AuthFormProps> = ({
     title,
@@ -29,8 +30,8 @@ const AuthForm: React.FC<AuthFormProps> = ({
         const authData: AuthData = {
             login: formData.get('login') as string,
             password: formData.get('password') as string,
-        }
-        onSubmit(authData)
+        }        
+        onSubmit(authData);
     }
 
   return (
@@ -39,10 +40,10 @@ const AuthForm: React.FC<AuthFormProps> = ({
             <Typography as='h2' size='xxl' weight='bold'>{title}</Typography>
             <div>
                 <div className={styles.inputs}>
-                    <input type="text" placeholder='Логин' name='login' required/>
-                    <input type="password" placeholder='Пароль' name='password' required/>
+                    <Input name='login' placeholder='Логин'/>
+                    <Input type='password' name='password' placeholder='Пароль'/>
                 </div>
-                <Button onClick={() => {}}>{submitText}</Button>
+                <Button type='submit'>{submitText}</Button>
             </div>
         </form>
         <div className={styles.row}>

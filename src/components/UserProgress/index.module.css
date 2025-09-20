@@ -1,0 +1,37 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto 3rem auto;
+  width: 18rem;
+}
+.section > h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.1875rem;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background: var(--color-line);
+}
+.row + .row {
+  margin-top: 1.125rem;
+}
+
+.row + .line {
+  margin-top: 0.5625rem;
+}
+
+.line + .row {
+  margin-top: 0.5625rem;
+}
