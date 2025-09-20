@@ -1,27 +1,31 @@
-import type { Lesson } from '../../app/store/slices/modulesSlice'
+import { Link } from 'react-router'
+import type { Module, ModulesStateLesson } from '../../app/store/slices/modulesSlice'
 import { Icon } from '../ui/Icon'
+import ProgressBar from '../ui/ProgressBar'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 interface ModuleCardProps {
+    id: Module['id'],
     title: string,
-    lessons: Lesson[],
+    order_index: Module['order_index']
+    lessons: ModulesStateLesson[],
 }
 const ModuleCard: React.FC<ModuleCardProps> = ({
+    id,
     title,
+    order_index,
     lessons,
 }) => {
+    const completed = lessons.reduce((sum, c) => c.completed ? sum + 1 : sum , 0) 
+
   return (
-    <div className={styles.card}>
+    <Link className={styles.card} to={`/modules/${id}`}>
         <div className={styles.content}>
             <Typography as='h3' weight='bold' size='lg'>
-                {title}
+                {order_index + 1}.{title}
             </Typography>
             <div>
-                <div className={styles.progressBar}>
-                    <div className={styles.userProgress} style={{
-                        width: `${(lessons.completed / lessons.length) * 100}%`
-                    }}></div>
-                </div>
+                <ProgressBar current={completed} max={lessons.length}/>
                 <div className={styles.info}>
                     <div className={styles.sum}>
                         <Icon name='book' size={15} />
@@ -30,7 +34,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                         </Typography>
                     </div>
                     <span className={styles.completed}>
-                        {lessons.completed}/{lessons.count}
+                        {completed}/{lessons.length}
                     </span>
                 </div>
             </div>
@@ -38,7 +42,7 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
         <button className={styles.button}>
             <Icon name='arrow-right' size={15} />
         </button>
-    </div>
+    </Link>
   )
 }
 

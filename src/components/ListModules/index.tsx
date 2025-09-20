@@ -6,14 +6,17 @@ import styles from './index.module.css'
 const ListModules = () => {
     const modules = useAppSelector(state => state.modules.list);
     const sortedModules = useMemo(() => 
-        modules.sort((a, b) => a.order_index - b.order_index)
+        [...modules].sort((a, b) => a.order_index - b.order_index)
     , [modules]);
 
   return (
     <div className={styles.list}>
-        {sortedModules.map((module, index) => 
+        {sortedModules.map(module => 
             <ModuleCard 
-                title={`${index}${module.title}`}
+                key={module.order_index}
+                id={module.id}
+                title={module.title}
+                order_index={module.order_index}
                 lessons={module.lessons}
             />
         )}

@@ -1,6 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-// todo state structure
-
+import { exampleModules } from "../../../libs/contants/example";
 interface ModulesState {
     list: Module[],
     loading: boolean
@@ -10,22 +9,18 @@ export interface Module {
     title: string,
     description: string,
     order_index: number,
-    lessons: Lesson[],
-    count_completed_lessons: number,
-    count_correct_tasks: number
+    lessons: ModulesStateLesson[]
 }
-export interface Lesson {
+export interface ModulesStateLesson {
     id: string,
     title: string,
-    content: string,
-    order_index: number,
-    is_completed: boolean;
+    completed: boolean
 } 
 
 const modulesSlice = createSlice({
     name: 'modules',
     initialState: {
-        list: [],
+        list: exampleModules,
         loading: false
     } as ModulesState,
     reducers: {
@@ -41,3 +36,5 @@ const modulesSlice = createSlice({
 export const {setModulesLoading} = modulesSlice.actions;
 
 export default modulesSlice.reducer;
+
+

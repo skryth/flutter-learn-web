@@ -4,7 +4,7 @@ import { Typography } from '../Typography'
 import styles from './index.module.css'
 
 const Logo = () => {
-  // todo change link to '/lessons' and check auth
+  // todo change link to '/modules' and check auth
   return (
     <Link to='/' className={styles.logo}> 
         <Icon name='logo' size={34} />

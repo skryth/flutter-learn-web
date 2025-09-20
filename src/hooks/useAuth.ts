@@ -10,12 +10,12 @@ const useAuth = () => {
     const signIn = (authData: AuthData) => {
         // todo: fetch setUserLoading(...)
         dispatch(setUserLogin(authData.login));
-        navigate('/lessons');
+        navigate('/modules');
     }
 
     const signUp = (authData: AuthData) => {
         dispatch(setUserLogin(authData.login))
-        navigate('/lessons');
+        navigate('/modules');
     }
 
     const signOut = () => {

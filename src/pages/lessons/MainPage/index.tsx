@@ -7,6 +7,8 @@ import ListModules from '../../../components/ListModules'
 import UserProgress from '../../../components/UserProgress'
 
 const MainPage = () => {
+  //todo modules loading 
+  
   return (
     <Container>
       <div className={styles.top}>
