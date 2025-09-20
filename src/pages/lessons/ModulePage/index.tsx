@@ -31,7 +31,7 @@ const ModulePage = () => {
           <ul className={styles.list}>
             {
               module!.lessons.map(l => (
-                <div className={styles.row}>
+                <div className={styles.row} key={l.id}>
                   {l.completed ? <Icon name='check' size={20} /> : <div className={styles.circle}></div>}
                   <Link to={`/lesson/${l.id}`}>
                     <Typography size='lg' weight='bold'>{l.title}</Typography>

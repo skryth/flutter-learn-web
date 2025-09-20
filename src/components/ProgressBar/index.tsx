@@ -7,10 +7,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     current, 
     max
 }) => {
+  const percentage = (current / max) * 100;
   return (
-    <div className={styles.container}>
+    <div className={styles.container} title={`${Math.round(percentage)}% завершено`}>
         <div className={styles.progress} style={{
-            width: `${(current/ max) * 100}%`
+            width: `${percentage}%`
         }}></div>
     </div>
   )

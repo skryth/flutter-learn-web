@@ -4,10 +4,17 @@
     margin-bottom: 0.1875rem;
     border-radius: 0.225rem;
     background: var(--color-empty-progress);
+    cursor: help;
 }
 .progress {
     width: 100%;
     height: 100%;
     border-radius: 0.225rem;
     background: var(--color-main);
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+.container:hover .progress {
+    transform: scaleY(1.4);
+    transform-origin: center left;
 }

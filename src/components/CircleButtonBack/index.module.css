@@ -3,13 +3,13 @@
     justify-content: center;
     align-items: center;
     background: var(--color-bg, #fff);
-    padding: clamp(0.875rem, 2vw, 1.125rem) clamp(1rem, 2vw, 1.25rem);
+    padding: clamp(0.675rem, 2vw, 1.125rem) clamp(0.75rem, 2vw, 1.25rem);
     border-radius: 50%;
     box-shadow: 
         0 3px 0 0 #e3dddd,
         0 1px 4px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: clamp(1.5rem, 5vw, 2.1875rem);
+    position: fixed;
+    top: clamp(6.625rem, 15vw, 7.372rem);
     left: clamp(1.5rem, 5vw, 2.1875rem);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
