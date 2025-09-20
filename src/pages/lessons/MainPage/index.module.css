@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-block: 1rem;
-}
-.content {
-    height: 100%;
+    column-gap: 2.3rem;
+    row-gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }

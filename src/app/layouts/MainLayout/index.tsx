@@ -6,13 +6,13 @@ import UserAvatar from '../../../components/UserAvatar'
 const MainLayout = () => {
   return (
     <>
-        <HeaderMain>
-          <UserAvatar />
-        </HeaderMain>
-        <main>
-            <Outlet />
-        </main>
-        <Footer />
+      <HeaderMain>
+        <UserAvatar />
+      </HeaderMain>
+      <main>
+          <Outlet />
+      </main>
+      <Footer />
     </>
   )
 }
