@@ -21,6 +21,10 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
 }
+header {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
 main {
   position: relative;
 }

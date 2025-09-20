@@ -22,9 +22,6 @@
     justify-content: center;
     column-gap: 0.9375rem;
 }
-.row > a {
-   text-decoration: none;
-}
 .row > a:hover {
    text-decoration: underline;
 }

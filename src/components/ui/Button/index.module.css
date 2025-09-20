@@ -1,6 +1,5 @@
 .button {
     text-align: center;
-    text-decoration: none;
     cursor: pointer;
     transition: transform .1s ease, background .3s ease, box-shadow .1s ease; 
     text-wrap: nowrap;
