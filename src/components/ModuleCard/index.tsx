@@ -1,12 +1,10 @@
+import type { Lesson } from '../../app/store/slices/modulesSlice'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 interface ModuleCardProps {
     title: string,
-    lessons: {
-        count: number,
-        completed: number
-    },
+    lessons: Lesson[],
 }
 const ModuleCard: React.FC<ModuleCardProps> = ({
     title,
@@ -21,14 +19,14 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
             <div>
                 <div className={styles.progressBar}>
                     <div className={styles.userProgress} style={{
-                        width: `${(lessons.completed / lessons.count) * 100}%`
+                        width: `${(lessons.completed / lessons.length) * 100}%`
                     }}></div>
                 </div>
                 <div className={styles.info}>
                     <div className={styles.sum}>
                         <Icon name='book' size={15} />
                         <Typography weight='medium'>
-                            уроков: {lessons.count}
+                            уроков: {lessons.length}
                         </Typography>
                     </div>
                     <span className={styles.completed}>

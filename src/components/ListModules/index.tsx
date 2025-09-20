@@ -1,33 +1,22 @@
+import { useMemo } from 'react';
+import { useAppSelector } from '../../app/store/hooks';
 import ModuleCard from '../ModuleCard'
 import styles from './index.module.css'
 
 const ListModules = () => {
+    const modules = useAppSelector(state => state.modules.list);
+    const sortedModules = useMemo(() => 
+        modules.sort((a, b) => a.order_index - b.order_index)
+    , [modules]);
+
   return (
     <div className={styles.list}>
-        <ModuleCard 
-            title='1.Введение в Flutter' 
-            lessons={{completed: 1, count: 2}}
+        {sortedModules.map((module, index) => 
+            <ModuleCard 
+                title={`${index}${module.title}`}
+                lessons={module.lessons}
             />
-        <ModuleCard 
-            title="2.Контейнеры и управление компоновкой"
-            lessons={{completed: 2, count: 5}}
-            />
-        <ModuleCard 
-            title="3.Встроенные виджеты и создание своих виджетов"
-            lessons={{completed: 0, count: 4}}
-        />
-        <ModuleCard 
-            title='1.Введение в Flutter' 
-            lessons={{completed: 1, count: 2}}
-            />
-        <ModuleCard 
-            title="2.Контейнеры и управление компоновкой"
-            lessons={{completed: 2, count: 5}}
-            />
-        <ModuleCard 
-            title="3.Встроенные виджеты и создание своих виджетов"
-            lessons={{completed: 0, count: 4}}
-        />
+        )}
     </div>
   )
 }
