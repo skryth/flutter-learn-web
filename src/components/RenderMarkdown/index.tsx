@@ -1,7 +1,9 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { PrismLight } from 'react-syntax-highlighter';
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 interface RenderMarkdownProps {
     children: string
@@ -32,7 +34,26 @@ const RenderMarkdown: React.FC<RenderMarkdownProps> = ({
             ),
             a: ({...props}) => (
                 <a {...props} target="_blank" rel="noopener noreferrer" className={styles.link} />
-            )
+            ),
+            code: ({ node, inline, className, children, ...props }) => {
+          const match = /language-(\w+)/.exec(className || '');
+          
+          return !inline && match ? (
+            <PrismLight
+              style={darcula}
+              language={match[1]}
+              PreTag="div"
+            >
+              {String(children).replace(/\n$/, '')}
+            </PrismLight>
+          ) : (
+            <code className={styles.code}
+              {...props}
+            >
+              {children}
+            </code>
+          );
+        }
         }}
     >
         {children}

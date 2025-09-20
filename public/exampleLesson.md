@@ -46,6 +46,24 @@ Flutter представляет фреймворк от компании Google
 
 Здесь нам надо изменить переменную Path, добавив путь к папке bin в Flutter SDK. Для этого выберем пункт Path и нажмем на кнопку "Изменить":
 
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/flionx/boost-clock.git
+   ```
+2. Go to the project folder:
+   ```bash
+   cd boost-clock
+   ```
+3. Install dependencies:
+   ```bash
+   npm i
+   ```
+4. Start the project:
+   ```bash
+   npm run dev
+   ```
+
 ![Редактирование переменной Path](https://metanit.com/dart/flutter/pics/1.3.png)
 
 Далее нажмем на кнопку "Создать" и появившееся поле ввода введем путь к папке bin из Flutter SDK:
