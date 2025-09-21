@@ -3,7 +3,7 @@ import { Typography, type TypographyProps } from '../Typography';
 import { Link } from 'react-router';
 import styles from './index.module.css'
 
-type BgColor = "primary" | "secondary";
+type BgColor = "primary" | "secondary" | "success" | "wrong";
 type Size = "sm" | "md";
 
 export interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
@@ -15,7 +15,8 @@ export interface ButtonProps extends Pick<TypographyProps, 'color' | 'size'> {
     borderRadius?: Size;
     to?: string;
     align?: 'center' | 'left' | 'right';
-    type?: 'submit' | 'button'
+    type?: 'submit' | 'button',
+    disabled?: boolean
 }
 const Button: React.FC<ButtonProps> = ({
     children,
@@ -28,7 +29,8 @@ const Button: React.FC<ButtonProps> = ({
     size = 'sm',
     align = 'center',
     to,
-    type = 'button'
+    type = 'button',
+    disabled = false
 }) => {
     const buttonStyles = `
         ${styles.button}
@@ -54,7 +56,7 @@ const Button: React.FC<ButtonProps> = ({
     )
 
   return (
-    <button className={buttonStyles} type={type} onClick={onClick} >
+    <button className={buttonStyles} type={type} onClick={onClick} disabled={disabled}>
         <Typography 
             color={color}
             size={size}

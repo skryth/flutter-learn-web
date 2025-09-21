@@ -1,0 +1,41 @@
+.customCode {
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--color-bg-code);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.codeBlock {
+  margin: 0;
+  padding: 2.2rem 1.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: var(--color-code);
+  background: var(--color-bg-code);
+  white-space: pre-wrap;
+}
+
+.inlineInput {
+  background: var(--color-bg);
+  border: 2px solid var(--color-main);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.4rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-text);
+  min-width: 80px;
+  margin: 0 0.1rem;
+  outline: none;
+  display: inline-block;
+}
+
+.inlineInput:focus {
+  border-color: var(--color-main-hover);
+  box-shadow: 0 0 0 2px rgba(91, 198, 248, 0.2);
+}
+
+.inlineInput::placeholder {
+  color: var(--color-text-secondary);
+}

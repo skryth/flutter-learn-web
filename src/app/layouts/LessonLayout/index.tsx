@@ -6,7 +6,7 @@ import HeaderLesson from '../../../components/HeaderLesson'
 const LessonLayout = () => {
   return (
     <>
-        <CircleButtonBack />
+        <CircleButtonBack to='/modules' />
         <HeaderLesson />
         <main>
             <Outlet />

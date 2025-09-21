@@ -1,15 +1,16 @@
-interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  width: number,
-  height?: number
-}
-
-export const Image: React.FC<ImageProps> = ({ src, width, height, ...props }) => {
+export const Image: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ 
+  src,
+  width,
+  height,
+  ...props 
+}) => {
+  const imgWidth = typeof width == 'number' ? `${width / 16}rem`: ''
   return (
     <img
       src={`/${src}.png`}
       style={{
-        width: `${width / 16}rem`,
-        height: `${height ? (height / 16) : (width / 16)}rem`,
+        width: imgWidth,
+        height: `${typeof height == 'number' ? (height / 16) : imgWidth}`,
         objectFit: 'contain',
         objectPosition: 'center'
       }}

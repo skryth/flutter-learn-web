@@ -43,6 +43,9 @@ const RenderMarkdown: React.FC<RenderMarkdownProps> = ({
               style={darcula}
               language={match[1]}
               PreTag="div"
+              customStyle={{
+                borderRadius: '0.2rem'
+              }}
             >
               {String(children).replace(/\n$/, '')}
             </PrismLight>

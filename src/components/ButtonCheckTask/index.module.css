@@ -1,0 +1,17 @@
+.row {
+    display: flex;
+    align-items: center;
+    column-gap: 2.1875rem;
+    margin-bottom: 2.1875rem;
+}
+.rowMessage {
+    display: flex;
+    align-items: center;
+    column-gap: 0.9375rem;
+}
+.explanation {
+    position: relative;
+    border: 1px solid var(--color-line);
+    border-radius: var(--brad-sm);
+    padding: 1rem;
+}
