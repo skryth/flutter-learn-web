@@ -16,26 +16,28 @@ const CodeWithInput: React.FC<CodeWithInputProps> = ({
   const codeParts = code.split('PLACEHOLDER_ANSWER')
   
   return (
-    <div className={styles.customCode}>
-      <pre className={styles.codeBlock}>
-        <code>
-          {codeParts[0]}
-          <input
-            disabled={disabled}
-            type="text"
-            value={inputValue}
-            onChange={e => setValue(e.target.value)}
-            className={styles.inlineInput}
-            autoFocus
-            onKeyDown={(e) => {
-            if (e.key === 'Enter' && inputValue.trim()) {
-              onEnter();
-            }
-          }}
-          />
-          {codeParts[1]}
-        </code>
-      </pre>
+    <div className={styles.code}>
+      <div className={styles.customCode}>
+        <pre className={styles.codeBlock}>
+          <code>
+            {codeParts[0]}
+            <input
+              disabled={disabled}
+              type="text"
+              value={inputValue}
+              onChange={e => setValue(e.target.value)}
+              className={styles.inlineInput}
+              autoFocus
+              onKeyDown={(e) => {
+              if (e.key === 'Enter' && inputValue.trim()) {
+                onEnter();
+              }
+            }}
+            />
+            {codeParts[1]}
+          </code>
+        </pre>
+      </div>
     </div>
   )
 }

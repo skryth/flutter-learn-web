@@ -1,25 +1,14 @@
-import { useCallback, useState } from 'react'
 import Container from '../../../components/ui/Container'
 import { Typography } from '../../../components/ui/Typography'
-import { Image } from '../../../components/ui/Image'
-import CodeWithInput from '../../../components/CodeWithInput'
 import ButtonCheckTask from '../../../components/ButtonCheckTask'
-import styles from './index.module.css'
 import EmulatorFlutter from '../../../components/EmulatorFlutter'
+import useUserTaskAnswer from '../../../hooks/useUserTaskAnswer'
+import styles from './index.module.css'
+import useRenderTaskByType from '../../../hooks/useRenderTaskByType'
 
-const taskCode = `import 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(PLACEHOLDER_ANSWER(\n    child: Text(\n      'Hello Flutter',\n      textDirection: PLACEHOLDER_ANSWER.ltr,\n    )\n  ));\n}`
-const correct = 'Flutter';
-
-export type UserAnswerType = "success" | "wrong" | null;
 const TaskPage = () => {
-  const [userAnswerType, setUserAnswerType] = useState<UserAnswerType>(null)
-  const [userAnswer, setUserAnswer] = useState<string>('');
-  const callSetUserAnswer = useCallback((value: string) => setUserAnswer(value), []);
-
-  const checkAnswer = () => {
-    setUserAnswerType(userAnswer === correct ? "success" : "wrong")
-  }
-  
+  const {checkAnswer, userAnswer, setUserAnswer, setUserAnswerText, task} = useUserTaskAnswer();
+  const {RenderTask} = useRenderTaskByType(task.task_type)
   return (
 <Container>
   <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
@@ -32,25 +21,22 @@ const TaskPage = () => {
   <div className={styles.row}>
 
     <div className={styles.task}>
-      <div className={styles.code}>
-        <CodeWithInput 
-          disabled={Boolean(userAnswerType)}
-          code={taskCode} 
-          inputValue={userAnswer} 
-          setValue={callSetUserAnswer}
-          onEnter={checkAnswer}
-        />
-      </div>
+      <RenderTask 
+        task={task} 
+        userAnswer={userAnswer}
+        setUserAnswer={setUserAnswer} 
+        setUserAnswerText={setUserAnswerText} 
+        checkAnswer={checkAnswer} 
+      />
       <div className={styles.questions}>
         <ButtonCheckTask 
-          userAnswer={userAnswer}
-          userAnswerType={userAnswerType} 
+          userAnswerType={userAnswer.answerType} 
           checkAnswer={checkAnswer} 
         />
       </div>
     </div>
 
-    <EmulatorFlutter userAnswerType={userAnswerType} />
+    <EmulatorFlutter userAnswerType={userAnswer.answerType} />
 
   </div>
 </Container>

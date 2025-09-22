@@ -2,24 +2,24 @@ import React from 'react'
 import Button from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'
-import type { UserAnswerType } from '../../pages/lessons/TaskPage'
 import styles from './index.module.css'
-
-interface ButtonCheckTaskProps {
-    userAnswer: string,
-    userAnswerType: UserAnswerType,
-    checkAnswer: VoidFunction
-}
+import type { UserAnswerType } from '../../hooks/useUserTaskAnswer'
 const exampleExplanation = "Flutter представляет фреймворк от компании Google, который позволяет создавать кроссплатформенные приложения, которые могут использовать однин и тот же код. Спектр платформ широк - это веб-приложения, мобильные приложения под Android и iOS, графические приложения под настольные операционные системы Windows, MacOS, Linux, а также веб-приложения"
 
+interface ButtonCheckTaskProps {
+    userAnswerType: UserAnswerType
+    checkAnswer: VoidFunction
+    disabled?: boolean
+}
+
 const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
-    userAnswer,
     userAnswerType,
-    checkAnswer
+    checkAnswer,
+    disabled = false
 }) => {
     if (!userAnswerType) return (
         <Button 
-            disabled={userAnswer.length === 0}
+            disabled={disabled}
             bg={userAnswerType ? userAnswerType : 'primary'}
             onClick={checkAnswer}
         >
