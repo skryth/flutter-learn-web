@@ -49,6 +49,12 @@
 .color-input {
     color: var(--color-input-text);
 }
+.color-success {
+    color: var(--color-success-dark);
+}
+.color-wrong {
+    color: var(--color-wrong-dark);
+}
 .color-white {
   color: #ffffff;
 }

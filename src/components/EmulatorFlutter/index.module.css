@@ -1,0 +1,55 @@
+.emulator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phoneFrame {
+    position: relative;
+    width: 15.75rem;
+    height: 28.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    border-radius: 3rem;
+    overflow: hidden;
+    background: white;
+    z-index: 1;
+}
+
+.result {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@media (max-width: 60.5rem) {
+    .emulator {
+        order: -1;
+    }
+    
+    .phoneFrame {
+        width: 250px;
+        height: 500px;
+    }
+}
+
+.phoneFrame {
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+}

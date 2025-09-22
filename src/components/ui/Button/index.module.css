@@ -1,11 +1,14 @@
 .button {
     text-align: center;
-    text-decoration: none;
     cursor: pointer;
     transition: transform .1s ease, background .3s ease, box-shadow .1s ease; 
     text-wrap: nowrap;
 }
-
+.button:disabled {
+    background: var(--color-empty-check);
+    box-shadow: var(--bshadow-disabled);
+    pointer-events: none;
+}
 .color-primary {
     background: var(--color-main);
     box-shadow: var(--bshadow-primary)
@@ -14,6 +17,14 @@
     background: var(--color-bg);
     border: 0.125rem solid var(--color-line);
     box-shadow: var(--bshadow-secondary)
+}
+.color-success {
+    background: var(--color-success);
+    box-shadow: var(--bshadow-success)
+}
+.color-wrong {
+    background: var(--color-wrong);
+    box-shadow: var(--bshadow-wrong)
 }
 
 .px-sm {
@@ -53,6 +64,13 @@
 .color-secondary:hover  {
     background: var(--color-bg-hover);
 }
+.color-success:hover  {
+    background: var(--color-success-light);
+}
+.color-wrong:hover  {
+    background: var(--color-wrong-light);
+}
+
 .button:active {
     transform: translateY(2px);
 }
@@ -61,4 +79,10 @@
 }
 .color-secondary:active  {
     box-shadow: var(--bshadow-secondary-active)
+}
+.color-success:active  {
+    box-shadow: var(--bshadow-success-active)
+}
+.color-wrong:active  {
+    box-shadow: var(--bshadow-wrong-active)
 }

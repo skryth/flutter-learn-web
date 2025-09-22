@@ -39,9 +39,9 @@ const ModuleCard: React.FC<ModuleCardProps> = ({
                 </div>
             </div>
         </div>
-        <button className={styles.button}>
+        <div className={styles.arrow}>
             <Icon name='arrow-right' size={15} />
-        </button>
+        </div>
     </Link>
   )
 }

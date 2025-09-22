@@ -31,9 +31,6 @@
     align-items: center;
     column-gap: 0.6875rem;
 }
-.row > a{
-    text-decoration: none;
-}
 .row > a:hover {
     text-decoration: underline;
     text-decoration-color: var(--color-text);

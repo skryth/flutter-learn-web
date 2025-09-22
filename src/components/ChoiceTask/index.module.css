@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.93575rem;
+    margin-bottom: 1.6875rem;
+}
+.row {
+    display: flex;
+    align-items: start;
+    column-gap: 0.93575rem;
+}
+.disabled > p{
+    pointer-events: none;
+}
+.cirlce {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: var(--color-empty-check);
+    transition: background .3s, transform .3s;
+    cursor: pointer;
+}
+.cirlce:hover {
+    transform: scale(1.1);
+    background: var(--color-text-placeholder);
+}
+.row > p {
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.row > p:hover {
+    color: var(--color-main-shadow);
+    transform: translateX(3px);
+}

@@ -13,9 +13,15 @@
     --color-text-placeholder: #AFAFAF;
     --color-input-text: #8E8E8E;
     --color-code: #141414;
-    --color-success: #58CC02;
+    --color-success-dark: #58CC02;
+    --color-success: #68D617;
+    --color-success-light: #72df24;
+    --color-wrong-dark: #CC2A02;
+    --color-wrong: #CB5031;
+    --color-wrong-light: #d5593a;
     --color-empty-progress: #EAEEF3;
     --color-empty-check: #C3C3C3;
+    --color-disabled-shadow: #ACACAC;
 
     --font-family: "Inter", sans-serif;
 
@@ -24,9 +30,14 @@
 
     --bshadow-primary: 0 0.25rem 0 0 var(--color-main-shadow);
     --bshadow-secondary: 0 0.25rem 0 0 var(--color-line);
+    --bshadow-success: 0 0.25rem 0 0 var(--color-success-dark);
+    --bshadow-wrong: 0 0.25rem 0 0 var(--color-wrong-dark);
     --border-secondary: 0.125rem solid var(--color-line);
+    --bshadow-disabled: 0 0.25rem 0 0 var(--color-disabled-shadow);
     --bshadow-primary-active: 0 0.125rem 0 0 var(--color-main-shadow);
     --bshadow-secondary-active: 0 0.1rem 0 0 var(--color-line);
+    --bshadow-success-active: 0 0.125rem 0 0 var(--color-success-dark);
+    --bshadow-wrong-active: 0 0.125rem 0 0 var(--color-wrong-dark);
 
     --transition-button: transform .1s ease, background .3s ease, box-shadow .1s ease; 
 }

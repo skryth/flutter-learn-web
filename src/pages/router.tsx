@@ -5,8 +5,11 @@ import HelloLayout from "../app/layouts/HelloLayout";
 import SignInPage from "./auth/SignInPage";
 import SignUpPage from "./auth/SignUpPage";
 import MainLayout from "../app/layouts/MainLayout";
-import MainPage from "./lessons/MainPage";
-import ModulePage from "./lessons/ModulePage";
+import LessonLayout from "../app/layouts/LessonLayout";
+import MainPage from "./modules/MainPage";
+import ModulePage from "./modules/ModulePage";
+import LessonPage from "./lessons/LessonPage";
+import TaskPage from "./lessons/TaskPage";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +41,20 @@ export const router = createBrowserRouter([
             {
                 path: ':id',
                 element: <ModulePage />
+            }
+        ]
+    },
+    {
+        path: '/lesson',
+        element: <LessonLayout />,
+        children: [
+            {
+                path: ':lesson_id',
+                element: <LessonPage />
+            },
+            {
+                path: ':lesson_id/task/:task_id',
+                element: <TaskPage />
             }
         ]
     },

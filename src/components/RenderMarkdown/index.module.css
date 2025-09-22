@@ -1,0 +1,20 @@
+.img {
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    max-width: 90%;
+}
+.link {
+    color: #505de7;
+    text-decoration: underline;
+}
+.link:hover {
+    text-decoration: none;
+}
+.code {
+    background: var(--color-main-light);
+    color: var(--color-code);
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.5rem;;
+    font-size: 0.85em;
+    font-weight: 500;
+}

@@ -1,0 +1,37 @@
+import type { UserSelectAnswer } from '../../hooks/useUserTaskAnswer'
+import type { ExampleFillCodeTask } from '../../libs/contants/example'
+import { Icon } from '../ui/Icon'
+import { Typography } from '../ui/Typography'
+import styles from './index.module.css'
+interface ChoiceTaskProps {
+  options: ExampleFillCodeTask['answers']
+  onSelect: (value: UserSelectAnswer) => void
+  selectedOption: UserSelectAnswer,
+  checked: boolean
+}
+
+const ChoiceTask: React.FC<ChoiceTaskProps> = ({
+  options,
+  onSelect,
+  selectedOption,
+  checked
+}) => {
+  return (
+    <div className={styles.container}>
+        {options.map(option => (
+            <div className={`${styles.row} ${checked ? styles.disabled : ''}`} key={option.id}>
+                {option.id === selectedOption.id ?
+                    <Icon name='check' size={20}/> 
+                : 
+                    <div className={styles.cirlce} onClick={() => onSelect(option)}></div>
+                }
+                <Typography color='darkblue' weight='bold' size='sm' uppercase onClick={() => onSelect(option)}>
+                    {option.answer_text}
+                </Typography>
+            </div>
+        ))}
+    </div>
+  )
+}
+
+export default ChoiceTask

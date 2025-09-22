@@ -4,9 +4,9 @@ import styles from "./index.module.css";
 type Size = "sm" | "md" | "lg" | "xl" | "xxl";
 type Weight = "regular" | "medium" | "bold";
 type Color = "primary" | "light" | "darkblue" | "title" | "code" 
-| "main" | "placeholder" | "input" | "white";
+| "main" | "placeholder" | "input" | "white" | 'success' | 'wrong';
 
-export interface TypographyProps {
+export interface TypographyProps extends React.HTMLAttributes<HTMLParagraphElement> {
   children: React.ReactNode;
   size?: Size;
   weight?: Weight;
@@ -22,9 +22,11 @@ export const Typography: React.FC<TypographyProps> = ({
   color = "title",
   as: Tag = "p",
   uppercase = false,
+  ...props
 }) => {
   return (
     <Tag
+      {...props}
       className={`
         ${styles[`size-${size}`]}
         ${styles[`weight-${weight}`]}
