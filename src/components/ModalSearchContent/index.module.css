@@ -1,0 +1,23 @@
+.modal {
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    border: 2px solid var(--color-line);
+    border-radius: var(--brad-sm);
+    padding: 0.46875rem;
+    box-shadow: var(--bshadow-secondary);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+.link {
+    padding: 0.46875rem;
+    border-radius: 0.45rem;
+    transition: background .3s;
+}
+.link:hover {
+    background: var(--color-bg-hover);
+}
