@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { exampleTasks } from '../libs/contants/example';
+import { useAppSelector } from '../app/store/hooks';
 
 export type UserAnswerType = "success" | "wrong" | null;
 export interface UserSelectAnswer {
@@ -13,7 +13,7 @@ export interface UserAnswer {
 
 const useUserTaskAnswer = () => {
     // todo: task state to useFetchTask
-    const [task, setTask] = useState(exampleTasks[2]);
+    const task = useAppSelector(state => state.task.task!);
     
     const [userAnswer, setUserAnswer] = useState<UserAnswer>({
         answer: {

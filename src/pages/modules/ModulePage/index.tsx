@@ -6,10 +6,12 @@ import { useAppSelector } from '../../../app/store/hooks';
 import ProgressBar from '../../../components/ProgressBar';
 import { Icon } from '../../../components/ui/Icon';
 import CircleButtonBack from '../../../components/CircleButtonBack';
+import useExampleFetch from '../../../hooks/useExampleFetch';
 
 const ModulePage = () => {    
   const {id} = useParams();
   // todo or fetch
+  useExampleFetch()
   const module = useAppSelector(state => state.modules.list.find(
     m => m.id === id
   ))

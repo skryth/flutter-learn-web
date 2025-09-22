@@ -1,14 +1,15 @@
-import styles from './index.module.css'
 import { Typography } from '../../../components/ui/Typography'
 import Container from '../../../components/ui/Container'
 import InputWithButton from '../../../components/InputWithButton'
 import { Icon } from '../../../components/ui/Icon'
 import ListModules from '../../../components/ListModules'
 import UserProgress from '../../../components/UserProgress'
+import styles from './index.module.css'
+import useExampleFetch from '../../../hooks/useExampleFetch'
 
 const MainPage = () => {
   //todo modules loading 
-  
+  useExampleFetch();
   return (
     <Container>
       <div className={styles.top}>

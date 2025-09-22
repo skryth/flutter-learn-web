@@ -1,3 +1,5 @@
+import type { TaskState } from "../../app/store/slices/taskSlice";
+
 export const exampleModules = [
   {
     id: "1a2b3c4d-5e6f-7890-abcd-ef1234567890",
@@ -139,7 +141,7 @@ export const exampleModules = [
   }
 ];
 
-export const exampleTasks: (ExampleStringCmpTask | ExampleFillCodeTask)[] = [
+export const exampleTasks: TaskState['task'][] = [
   {
     id: '82e23687-b208-431e-8853-b13c26d850f3',
     question: "import 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(PLACEHOLDER_ANSWER(\n    child: Text(\n      'Hello Flutter',\n      textDirection: PLACEHOLDER_ANSWER.ltr,\n    )\n  ));\n}",
@@ -201,26 +203,3 @@ export const exampleTasks: (ExampleStringCmpTask | ExampleFillCodeTask)[] = [
     correct_id: '44393d71-65f3-4400-a888-127e73de2da3'
   },
 ]
-
-export type TaskType = 'string_cmp' | 'fill_code' | 'choice';
-export interface ExampleStringCmpTask {
-  task_type: "string_cmp",
-  id: string,
-  question: string,
-  answers: {
-    id: string,
-  }[],
-  server_answer_by_id: string
-}
-
-export interface ExampleFillCodeTask {
-  task_type: "fill_code" | "choice",
-  id: string,
-  question: string,
-  answers: ExampleFillCodeAnswer[],
-  correct_id: string
-}
-export interface ExampleFillCodeAnswer {
-  id: string,
-  answer_text: string
-}

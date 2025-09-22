@@ -5,11 +5,14 @@ import EmulatorFlutter from '../../../components/EmulatorFlutter'
 import useUserTaskAnswer from '../../../hooks/useUserTaskAnswer'
 import useRenderTaskByType from '../../../hooks/useRenderTaskByType'
 import { taskTitle } from '../../../libs/contants/task'
+import useExampleFetch from '../../../hooks/useExampleFetch'
 import styles from './index.module.css'
 
 const TaskPage = () => {
   const {checkAnswer, userAnswer, setUserAnswer, setUserAnswerText, task} = useUserTaskAnswer();
-  const {RenderTask} = useRenderTaskByType(task.task_type)
+  const {RenderTask} = useRenderTaskByType(task.task_type);
+  useExampleFetch(true)
+
   return (
 <Container>
   <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
