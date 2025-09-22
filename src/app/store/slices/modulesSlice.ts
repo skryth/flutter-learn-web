@@ -21,7 +21,7 @@ const modulesSlice = createSlice({
     name: 'modules',
     initialState: {
         list: exampleModules,
-        loading: false
+        loading: true
     } as ModulesState,
     reducers: {
         setModules: (state, action: PayloadAction<Module[]>) => {

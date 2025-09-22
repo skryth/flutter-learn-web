@@ -5,11 +5,12 @@ import { Typography } from '../../../components/ui/Typography';
 import Container from '../../../components/ui/Container';
 import { useEffect, useState } from 'react';
 import RenderMarkdown from '../../../components/RenderMarkdown';
+import useExampleFetch from '../../../hooks/useExampleFetch';
 
 const LessonPage = () => {
     const {lesson_id} = useParams();
     const [lesson, setLesson] = useState<string | null>(null);
-
+    useExampleFetch(true)
     useEffect(() => {
         const fetchLesson = async () => {
             const res = await fetch('/exampleLesson.md');
