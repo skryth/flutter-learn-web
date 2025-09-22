@@ -13,7 +13,7 @@ export interface UserAnswer {
 
 const useUserTaskAnswer = () => {
     // todo: task state to useFetchTask
-    const [task, setTask] = useState(exampleTasks[1]);
+    const [task, setTask] = useState(exampleTasks[2]);
     
     const [userAnswer, setUserAnswer] = useState<UserAnswer>({
         answer: {
@@ -36,10 +36,10 @@ const useUserTaskAnswer = () => {
     []);
 
     const checkAnswer = () => {
-        if (task.task_type === 'fill_code') {
-            callSetUserAnswerType(userAnswer.answer.id === task.correct_id ? "success" : "wrong")
-        } else if (task.task_type === 'string_cmp') {
+        if (task.task_type === 'string_cmp') {
             callSetUserAnswerType(userAnswer.answer.answer_text === task.server_answer_by_id ? "success" : "wrong")
+        } else {
+            callSetUserAnswerType(userAnswer.answer.id === task.correct_id ? "success" : "wrong")
         }
     }
 
@@ -49,7 +49,7 @@ const useUserTaskAnswer = () => {
     checkAnswer,
     userAnswer,
     task
-}
+    }
 }
 
 export default useUserTaskAnswer

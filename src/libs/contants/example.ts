@@ -176,9 +176,33 @@ export const exampleTasks: (ExampleStringCmpTask | ExampleFillCodeTask)[] = [
     ],
     server_answer_by_id: 'Text',
   },
+  {
+    id: '82e23687-b208-431e-8853-b13c26d850f3',
+    question: "Что произойдет, если внутри метода build() виджета напрямую изменить состояние (например, увеличить счетчик) и вызвать setState()?",
+    task_type: 'choice',
+    answers: [
+      {
+        id: '44393d71-65f3-4400-a888-127e73de2da1',
+        answer_text: 'Приложение вылетит с ошибкой.'
+      },
+      {
+        id: '44393d71-65f3-4400-a888-127e73de2da2',
+        answer_text: 'Код отработает корректно, и значение счетчика будет увеличиваться на 1 при каждой перерисовке.'
+      },
+      {
+        id: '44393d71-65f3-4400-a888-127e73de2da3',
+        answer_text: 'Произойдет бесконечный цикл перерисовок, что приведет к зависанию или аварийному завершению приложения.'
+      },
+      {
+        id: '44393d71-65f3-4400-a888-127e73de2da4',
+        answer_text: 'Значение счетчика увеличится только один раз при первой отрисовке.'
+      }
+    ],
+    correct_id: '44393d71-65f3-4400-a888-127e73de2da3'
+  },
 ]
 
-export type TaskType = 'string_cmp' | 'fill_code';
+export type TaskType = 'string_cmp' | 'fill_code' | 'choice';
 export interface ExampleStringCmpTask {
   task_type: "string_cmp",
   id: string,
@@ -190,7 +214,7 @@ export interface ExampleStringCmpTask {
 }
 
 export interface ExampleFillCodeTask {
-  task_type: "fill_code",
+  task_type: "fill_code" | "choice",
   id: string,
   question: string,
   answers: ExampleFillCodeAnswer[],

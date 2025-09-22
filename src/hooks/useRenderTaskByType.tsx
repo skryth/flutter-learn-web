@@ -1,7 +1,8 @@
 import type { ExampleFillCodeTask, ExampleStringCmpTask, TaskType } from '../libs/contants/example'
 import CodeWithInput from '../components/CodeWithInput'
-import ChoiceTask from '../components/ChoiceTask'
+import FillCodeTask from '../components/FillCodeTask'
 import type { UserAnswer, UserSelectAnswer } from './useUserTaskAnswer'
+import ChoiceTask from '../components/ChoiceTask'
 interface RenderTaskProps {
   userAnswer: UserAnswer, 
   task: ExampleStringCmpTask | ExampleFillCodeTask, 
@@ -24,9 +25,18 @@ const useRenderTaskByType = (type: TaskType) => {
       )
     } else if (type === 'fill_code') {
       return (
-        <ChoiceTask 
+        <FillCodeTask 
           code={task.question}
           options={task.task_type === 'fill_code' ? task.answers : []}
+          onSelect={setUserAnswer}
+          selectedOption={userAnswer.answer}
+          checked={Boolean(userAnswer.answerType)}
+        />
+      )
+    } else if(type === 'choice') {
+      return (
+        <ChoiceTask 
+          options={task.task_type === 'choice' ? task.answers : []}
           onSelect={setUserAnswer}
           selectedOption={userAnswer.answer}
           checked={Boolean(userAnswer.answerType)}

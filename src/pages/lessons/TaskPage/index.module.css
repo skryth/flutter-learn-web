@@ -5,6 +5,10 @@
     align-items: start;
     margin-bottom: 2rem;
 }
+.col {
+    display: flex;
+    flex-direction: column;
+}
 
 @media (max-width: 60.5rem) {
     .row {

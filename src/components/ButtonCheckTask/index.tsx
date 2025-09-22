@@ -16,7 +16,7 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     userAnswerType,
     checkAnswer,
     disabled = false
-}) => {
+}) => {    
     if (!userAnswerType) return (
         <Button 
             disabled={disabled}
