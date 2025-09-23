@@ -49,7 +49,7 @@ export default class ApiClient {
     return this.request<T>(endpoint);
   }
 
-  post<T>(endpoint: string, body: unknown) {
+  post<T>(endpoint: string, body?: unknown) {
     return this.request<T>(endpoint, { method: "POST", body });
   }
 }

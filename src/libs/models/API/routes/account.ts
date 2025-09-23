@@ -1,10 +1,10 @@
 import { API } from ".."
 const accountRoute = {
     signUp: (username: string, password: string) => {
-        return API.post<AccountResponse>('/api/v1/account/signup', { username, password })
+        return API.post<AccountResponse>('/account/signup', { username, password })
     },
     signIn: (username: string, password: string) => {
-        return API.post<AccountResponse>('/api/v1/account/signin', { username, password })
+        return API.post<AccountResponse>('/account/signin', { username, password })
     }
 }
 export default accountRoute;

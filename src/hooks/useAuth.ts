@@ -18,7 +18,7 @@ const useAuth = () => {
             toast.success('Вы успешно вошли');
             navigate('/modules');
         } catch (e) {
-            catchError(e);
+            catchError(e, 'account');
         }
     }
 
