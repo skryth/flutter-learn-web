@@ -33,7 +33,7 @@ const modulesSlice = createSlice({
     }
 })
 
-export const {setModulesLoading} = modulesSlice.actions;
+export const {setModules, setModulesLoading} = modulesSlice.actions;
 
 export default modulesSlice.reducer;
 

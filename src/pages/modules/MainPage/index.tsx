@@ -3,13 +3,12 @@ import Container from '../../../components/ui/Container'
 import InputWithButton from '../../../components/InputWithButton'
 import ListModules from '../../../components/ListModules'
 import UserProgress from '../../../components/UserProgress'
-import styles from './index.module.css'
-import useExampleFetch from '../../../hooks/useExampleFetch'
 import ModalSearchContent from '../../../components/ModalSearchContent'
+import useFetchModules from '../../../hooks/modules/useFetchModules'
+import styles from './index.module.css'
 
 const MainPage = () => {
-  //todo fetch modules
-  useExampleFetch();
+  useFetchModules();
   return (
     <Container>
       <div className={styles.top}>
