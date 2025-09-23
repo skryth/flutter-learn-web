@@ -1,4 +1,4 @@
-import type { TaskType } from "./example";
+import type { TaskType } from "../../app/store/slices/taskSlice"
 
 export const taskTitle = (type: TaskType) => {
     if (type === 'string_cmp') {

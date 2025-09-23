@@ -98,46 +98,14 @@ export const exampleModules = [
     title: "Работа с состоянием",
     description: "Управление состоянием в Flutter приложениях",
     order_index: 4,
-    lessons: [
-      {
-        title: "setState и локальное состояние",
-        id: "m3n4o5p6-q7r8-9012-mnop-345678901234",
-        completed: false
-      },
-      {
-        title: "Bloc и Cubit паттерны",
-        id: "n4o5p6q7-r8s9-0123-nopq-456789012345",
-        completed: false
-      },
-      {
-        title: "Provider и Riverpod",
-        id: "o5p6q7r8-s9t0-1234-opqr-567890123456",
-        completed: false
-      }
-    ]
+    lessons: []
   },
   {
     id: "6f7g8h9i-0j1k-2345-lmno-pqrstuvwxyz0",
     title: "Работа с API",
     description: "Интеграция с backend и работа с сетью",
     order_index: 5,
-    lessons: [
-      {
-        title: "HTTP запросы с dio и http",
-        id: "p6q7r8s9-t0u1-2345-pqrs-678901234567",
-        completed: false
-      },
-      {
-        title: "Парсинг JSON данных",
-        id: "q7r8s9t0-u1v2-3456-qrst-789012345678",
-        completed: false
-      },
-      {
-        title: "Кэширование и offline-режим",
-        id: "r8s9t0u1-v2w3-4567-rstu-890123456789",
-        completed: false
-      }
-    ]
+    lessons: []
   }
 ];
 
