@@ -7,8 +7,8 @@ export interface TaskState {
 export type TaskType = 'string_cmp' | 'fill_code' | 'choice';
 
 interface TaskRequiredOptions {
-    task_type: TaskType,
     id: string,
+    task_type: TaskType,
     question: string,
 }
 export interface TaskAnswer {
@@ -18,7 +18,6 @@ export interface TaskAnswer {
 export interface TaskStringCmp extends TaskRequiredOptions {
   task_type: "string_cmp",
   answers: Pick<TaskAnswer, 'id'>[],
-  server_answer_by_id: string // todo: this field will not be present 
 }
 
 export interface TaskWithAnswers {
@@ -26,7 +25,7 @@ export interface TaskWithAnswers {
   id: string,
   question: string,
   answers: TaskAnswer[],
-  correct_id: string
+//   correct_id: string
 }
 
 const taskSlice = createSlice({
