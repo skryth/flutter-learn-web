@@ -1,13 +1,15 @@
+import useFetchTasks from '../../../hooks/tasks/useFetchTasks'
 import Container from '../../../components/ui/Container'
 import { Typography } from '../../../components/ui/Typography'
 import ButtonCheckTask from '../../../components/ButtonCheckTask'
 import EmulatorFlutter from '../../../components/EmulatorFlutter'
-import useUserTaskAnswer from '../../../hooks/useUserTaskAnswer'
+import useUserTaskAnswer from '../../../hooks/tasks/useUserTaskAnswer'
 import useRenderTaskByType from '../../../hooks/useRenderTaskByType'
 import { taskTitle } from '../../../libs/contants/task'
 import styles from './index.module.css'
 
 const TaskPage = () => {
+  useFetchTasks();
   const {checkAnswer, userAnswer, setUserAnswer, setUserAnswerText, task} = useUserTaskAnswer();
   const {RenderTask} = useRenderTaskByType(task.task_type);
 

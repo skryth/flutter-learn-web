@@ -1,4 +1,4 @@
-import type { UserSelectAnswer } from '../../hooks/useUserTaskAnswer'
+import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
 import type { ExampleFillCodeTask } from '../../libs/contants/example'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'

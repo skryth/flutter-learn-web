@@ -3,8 +3,8 @@ import Button from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
-import type { UserAnswerType } from '../../hooks/useUserTaskAnswer'
-const exampleExplanation = "Flutter представляет фреймворк от компании Google, который позволяет создавать кроссплатформенные приложения, которые могут использовать однин и тот же код. Спектр платформ широк - это веб-приложения, мобильные приложения под Android и iOS, графические приложения под настольные операционные системы Windows, MacOS, Linux, а также веб-приложения"
+import type { UserAnswerType } from '../../hooks/tasks/useUserTaskAnswer'
+import { useAppSelector } from '../../app/store/hooks'
 
 interface ButtonCheckTaskProps {
     userAnswerType: UserAnswerType
@@ -17,6 +17,8 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     checkAnswer,
     disabled = false
 }) => {    
+    const explanationText = useAppSelector(state => state.task.explanation.explanation?.explanation);
+
     if (!userAnswerType) return (
         <Button 
             disabled={disabled}
@@ -51,7 +53,7 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
                 Объяснение
             </Typography>
             <Typography color='light' weight='medium'>
-                {exampleExplanation}
+                {explanationText}
             </Typography>
         </div>
     </>

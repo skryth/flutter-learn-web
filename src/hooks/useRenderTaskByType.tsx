@@ -1,11 +1,11 @@
-import type { ExampleFillCodeTask, ExampleStringCmpTask, TaskType } from '../libs/contants/example'
 import CodeWithInput from '../components/CodeWithInput'
 import FillCodeTask from '../components/FillCodeTask'
-import type { UserAnswer, UserSelectAnswer } from './useUserTaskAnswer'
 import ChoiceTask from '../components/ChoiceTask'
+import type { UserAnswer, UserSelectAnswer } from './tasks/useUserTaskAnswer'
+import type { TaskStringCmp, TaskType, TaskWithAnswers } from '../app/store/slices/taskSlice'
 interface RenderTaskProps {
   userAnswer: UserAnswer, 
-  task: ExampleStringCmpTask | ExampleFillCodeTask, 
+  task: TaskStringCmp | TaskWithAnswers, 
   setUserAnswerText: (value: string) => void, 
   checkAnswer: VoidFunction, 
   setUserAnswer: (value: UserSelectAnswer) => void

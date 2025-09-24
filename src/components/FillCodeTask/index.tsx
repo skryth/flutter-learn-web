@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import styles from './index.module.css'
 import AnimatedOption from '../AnimatedOption'
 import type { ExampleFillCodeAnswer, ExampleFillCodeTask } from '../../libs/contants/example'
-import type { UserSelectAnswer } from '../../hooks/useUserTaskAnswer'
+import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
 
 interface FillCodeTaskProps {
   code: string

@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react'
-import { useAppSelector } from '../app/store/hooks';
+import { useAppSelector } from '../../app/store/hooks';
+import useFetchCheckAnswer from './useFetchCorrectAnswer';
+import useCatchError from '../useCatchError';
 
 export type UserAnswerType = "success" | "wrong" | null;
 export interface UserSelectAnswer {
@@ -12,8 +14,9 @@ export interface UserAnswer {
 }
 
 const useUserTaskAnswer = () => {
-    // todo: task state to useFetchTask
     const task = useAppSelector(state => state.task.task!);
+    const fetchCheckAnswer = useFetchCheckAnswer();
+    const catchError = useCatchError();
     
     const [userAnswer, setUserAnswer] = useState<UserAnswer>({
         answer: {
@@ -35,11 +38,12 @@ const useUserTaskAnswer = () => {
         (value: UserAnswer['answerType']) => setUserAnswer(c => ({...c, answerType: value})), 
     []);
 
-    const checkAnswer = () => {
-        if (task.task_type === 'string_cmp') {
-            callSetUserAnswerType(userAnswer.answer.answer_text === task.server_answer_by_id ? "success" : "wrong")
-        } else {
-            callSetUserAnswerType(userAnswer.answer.id === task.correct_id ? "success" : "wrong")
+    const checkAnswer = async () => {
+        try {
+            const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
+            callSetUserAnswerType(explanation?.is_correct ? "success" : "wrong");
+        } catch (error) {
+            catchError(error)
         }
     }
 
