@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
                 element: <LessonPage />
             },
             {
-                path: ':lesson_id/task/:task_id',
+                path: ':lesson_id/task/',
                 element: <TaskPage />
             }
         ]

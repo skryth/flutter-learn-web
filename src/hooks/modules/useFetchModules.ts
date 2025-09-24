@@ -5,10 +5,18 @@ import { setModules, setModulesLoading } from '../../app/store/slices/modulesSli
 import useCatchError from '../useCatchError';
 
 const useFetchModules = () => {
+    const fetchModules = useFuncFetchModules();
+  useEffect(() => {
+    fetchModules();
+  }, [])
+}
+
+export default useFetchModules;
+
+export const useFuncFetchModules = () => {
     const dispatch = useAppDispatch();
     const catchError = useCatchError();
 
-  useEffect(() => {
     const fetchModules = async () => {
         try {
             dispatch(setModulesLoading(true))
@@ -19,9 +27,7 @@ const useFetchModules = () => {
         } finally {
             dispatch(setModulesLoading(false))
         }
-    }   
-    fetchModules();
-  }, [])
-}
+    }
 
-export default useFetchModules
+    return fetchModules;
+}  
