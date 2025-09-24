@@ -31,7 +31,7 @@ const TaskPage = () => {
         setUserAnswerText={setUserAnswerText} 
         checkAnswer={checkAnswer} 
       />
-      <div className={styles.questions}> {/* нужно ли? */}
+      <div> {/* нужно ли? */}
         <ButtonCheckTask 
           disabled={userAnswer.answer.answer_text.length === 0}
           userAnswerType={userAnswer.answerType} 

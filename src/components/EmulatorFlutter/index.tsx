@@ -1,6 +1,7 @@
+import { useAppSelector } from '../../app/store/hooks'
+import type { UserAnswerType } from '../../hooks/tasks/useUserTaskAnswer'
 import { Image } from '../ui/Image'
 import styles from './index.module.css'
-import type { UserAnswerType } from '../../pages/lessons/TaskPage'
 interface EmulatorFlutterProps {
     userAnswerType: UserAnswerType
 }
@@ -8,15 +9,26 @@ interface EmulatorFlutterProps {
 const EmulatorFlutter: React.FC<EmulatorFlutterProps> = ({
     userAnswerType
 }) => {
+  const correctScreenImage = useAppSelector(state => state.task.explanation.explanation?.image);
   return (
     <div className={styles.emulator}>
       <div className={styles.phoneFrame}>
         <div className={styles.screen}>
-          {Boolean(userAnswerType) && <Image 
-            src={`example-${userAnswerType}`}
-            alt="Flutter app result" 
-            className={styles.result}
-          />}
+          {Boolean(userAnswerType) && 
+            userAnswerType === 'wrong' ? 
+              <Image 
+                src={`example-${userAnswerType}`}
+                alt="Flutter app wrong result" 
+                className={styles.result}
+              />
+            :
+              <Image 
+                src={correctScreenImage}
+                alt="Flutter app success result" 
+                className={styles.result}
+                local={false}
+              />
+          }
         </div>
         <Image 
           src='phone' 
