@@ -34,14 +34,10 @@ const useUserTaskAnswer = () => {
             ...c, answer: {...c.answer, answer_text: value}
     })), []);
 
-    const callSetUserAnswerType = useCallback(
-        (value: UserAnswer['answerType']) => setUserAnswer(c => ({...c, answerType: value})), 
-    []);
-
     const checkAnswer = async () => {
         try {
             const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
-            callSetUserAnswerType(explanation?.is_correct ? "success" : "wrong");
+            setUserAnswer(c => ({...c, answerType: explanation?.is_correct ? "success" : "wrong"}))
         } catch (error) {
             catchError(error)
         }
