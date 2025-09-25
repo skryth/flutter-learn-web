@@ -11,7 +11,7 @@ interface RenderTaskProps {
   setUserAnswer: (value: UserSelectAnswer) => void
 }
 
-const useRenderTaskByType = (type: TaskType) => {
+const useRenderTaskByType = (type: TaskType | undefined) => {
   const RenderTask: React.FC<RenderTaskProps> = ({userAnswer, task, setUserAnswerText, checkAnswer, setUserAnswer}) => {
     if (type === 'string_cmp') {
       return (
@@ -42,6 +42,8 @@ const useRenderTaskByType = (type: TaskType) => {
           checked={Boolean(userAnswer.answerType)}
         />
       )
+    } else {
+      return null
     }
   }
 

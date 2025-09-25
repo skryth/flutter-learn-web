@@ -12,6 +12,19 @@ const LessonPage = () => {
     const module = useModuleByLessonId(lesson?.id)
     const {goHome, goTask} = useLessonActions(lesson?.id!);
 
+    if (!lesson) {
+        return (
+            <Container>
+                <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
+                    Урок не найден
+                </Typography>
+                <Typography size='md' style={{marginBottom: '2rem'}}>
+                    Возможно, урок находится в разработке. Пожалуйста, повторите попытку позже
+                </Typography>
+            </Container>
+        )
+    }
+
   return (
     <Container>
         <Typography color='main' as='h1' size='xxl' weight='bold' style={{marginBlock: '2.1875rem 1rem'}}>

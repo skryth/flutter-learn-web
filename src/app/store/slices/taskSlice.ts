@@ -45,7 +45,7 @@ const taskSlice = createSlice({
             explanation: null,
             loading: false
         },
-        loading: true,
+        loading: false,
     } as TaskState,
     reducers: {
         setTask: (state, action: PayloadAction<TaskState['task']>) => {

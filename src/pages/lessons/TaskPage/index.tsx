@@ -7,42 +7,69 @@ import useUserTaskAnswer from '../../../hooks/tasks/useUserTaskAnswer'
 import useRenderTaskByType from '../../../hooks/useRenderTaskByType'
 import { taskTitle } from '../../../libs/contants/task'
 import styles from './index.module.css'
+import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading'
+import { useAppSelector } from '../../../app/store/hooks'
 
 const TaskPage = () => {
   useFetchTasks();
-  const {checkAnswer, userAnswer, setUserAnswer, setUserAnswerText, task} = useUserTaskAnswer();
-  const {RenderTask} = useRenderTaskByType(task.task_type);
+  const tasksLoading = useAppSelector(state => state.task.loading);
+  const task = useAppSelector(state => state.task.task);
+  const {checkAnswer, userAnswer, setUserAnswer, setUserAnswerText} = useUserTaskAnswer();  
+  const {RenderTask} = useRenderTaskByType(task?.task_type);
+
+  if (tasksLoading) {
+    return (
+      <Container>
+        <ConditionalLoader isLoading={true}>
+          <div></div>
+        </ConditionalLoader>
+      </Container>
+    );
+  }
+
+  if (!task) {
+    return (
+      <Container>
+        <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
+          Задача не найдена
+        </Typography>
+        <Typography size='md' style={{marginBottom: '2rem'}}>
+          Для этого урока нет доступных задач
+        </Typography>
+      </Container>
+    );
+  }
 
   return (
-<Container>
-  <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
-    {taskTitle(task.task_type)}
-  </Typography>
-  <Typography size='md' style={{marginBottom: '2rem'}}>
-    {task.task_type === 'choice' ? task.question : 'Заполни пропущенное слово в коде приложения Flutter'}
-  </Typography>
-  
-  <div className={`${styles.row} ${task.task_type === 'choice' ? styles.col : ''}`}>
-    <div className={styles.task}>
-      <RenderTask 
-        task={task} 
-        userAnswer={userAnswer}
-        setUserAnswer={setUserAnswer} 
-        setUserAnswerText={setUserAnswerText} 
-        checkAnswer={checkAnswer} 
-      />
-      <div> {/* нужно ли? */}
-        <ButtonCheckTask 
-          disabled={userAnswer.answer.answer_text.length === 0}
-          userAnswerType={userAnswer.answerType} 
-          checkAnswer={checkAnswer} 
-        />
+    <Container>
+      <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
+        {taskTitle(task.task_type)}
+      </Typography>
+      <Typography size='md' style={{marginBottom: '2rem'}}>
+        {task.task_type === 'choice' ? task.question : 'Заполни пропущенное слово в коде приложения Flutter'}
+      </Typography>
+      
+      <div className={`${styles.row} ${task.task_type === 'choice' ? styles.col : ''}`}>
+        <div className={styles.task}>
+          <RenderTask 
+            task={task} 
+            userAnswer={userAnswer}
+            setUserAnswer={setUserAnswer} 
+            setUserAnswerText={setUserAnswerText} 
+            checkAnswer={checkAnswer} 
+          />
+          <div>
+            <ButtonCheckTask 
+              disabled={userAnswer.answer.answer_text.length === 0}
+              userAnswerType={userAnswer.answerType} 
+              checkAnswer={checkAnswer} 
+            />
+          </div>
+        </div>
+        {task.task_type !== 'choice' && <EmulatorFlutter userAnswerType={userAnswer.answerType} />}
       </div>
-    </div>
-    {task.task_type !== 'choice' && <EmulatorFlutter userAnswerType={userAnswer.answerType} />}
-  </div>
-</Container>
-  )
+    </Container>
+  );
 }
 
 export default TaskPage

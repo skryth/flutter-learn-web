@@ -14,7 +14,7 @@ export interface UserAnswer {
 }
 
 const useUserTaskAnswer = () => {
-    const task = useAppSelector(state => state.task.task!);
+    const task = useAppSelector(state => state.task.task);
     const fetchCheckAnswer = useFetchCheckAnswer();
     const catchError = useCatchError();
     
@@ -35,6 +35,7 @@ const useUserTaskAnswer = () => {
     })), []);
 
     const checkAnswer = async () => {
+        if (!task?.task_type) return;
         try {
             const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
             setUserAnswer(c => ({...c, answerType: explanation?.is_correct ? "success" : "wrong"}))
@@ -44,11 +45,11 @@ const useUserTaskAnswer = () => {
     }
 
   return {
-    setUserAnswer: callSetUserAnswerFull, 
-    setUserAnswerText: callSetUserAnswerText,
-    checkAnswer,
-    userAnswer,
-    task
+        setUserAnswer: callSetUserAnswerFull, 
+        setUserAnswerText: callSetUserAnswerText,
+        checkAnswer,
+        userAnswer,
+        task
     }
 }
 

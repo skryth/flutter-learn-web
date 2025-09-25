@@ -6,22 +6,26 @@ import { setTask, setTaskLoading } from '../../app/store/slices/taskSlice';
 import useCatchError from '../useCatchError';
 
 const useFetchTasks = () => {
-    const {lesson_id} = useParams();
-    const dispatch = useAppDispatch();
-    const catchError = useCatchError();
+  const {lesson_id} = useParams();
+  const dispatch = useAppDispatch();
+  const catchError = useCatchError();
 
   useEffect(() => {
     const fetchTasks = async () => {
-        try {
-            dispatch(setTaskLoading(true));
-            const tasks = await tasksRoute.getTask(lesson_id!)
-            dispatch(setTask(tasks[0]));
-            // todo: array of tasks
-        } catch (error) {
-            catchError(error);
-        } finally {
-            dispatch(setTaskLoading(false));
+      try {
+        dispatch(setTaskLoading(true));
+        const tasks = await tasksRoute.getTask(lesson_id!);
+        if (tasks.length === 0) {
+          dispatch(setTask(null));
+        } else {
+          dispatch(setTask(tasks[0]));
         }
+      } catch (error) {
+        catchError(error);
+        dispatch(setTask(null));
+      } finally {
+        dispatch(setTaskLoading(false));
+      }
     }
     fetchTasks();
   }, [lesson_id])

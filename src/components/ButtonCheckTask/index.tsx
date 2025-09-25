@@ -32,7 +32,7 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     <>
         <div className={styles.row}>
             <Button
-                to='/modules/' 
+                to='/modules' 
                 bg={userAnswerType}
             >
                 На главную

@@ -6,7 +6,7 @@ import UserAvatar from '../../../components/UserAvatar'
 import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading'
 
 const MainLayout = () => {
-  const loading = useAppSelector(state => state.modules.loading);
+  const modulesLoading = useAppSelector(state => state.modules.loading);
 
   return (
     <>
@@ -14,7 +14,7 @@ const MainLayout = () => {
         <UserAvatar />
       </HeaderMain>
       <main>
-        <ConditionalLoader isLoading={loading}>
+        <ConditionalLoader isLoading={modulesLoading}>
           <Outlet />
         </ConditionalLoader>
       </main>

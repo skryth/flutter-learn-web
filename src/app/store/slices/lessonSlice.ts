@@ -15,7 +15,7 @@ const lessonSlice = createSlice({
     name: 'lesson',
     initialState: {
         lesson: null,
-        loading: true,
+        loading: false,
     } as LessonState,
     reducers: {
         setLesson: (state, action: PayloadAction<LessonState['lesson']>) => {

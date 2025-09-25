@@ -12,7 +12,7 @@ const useFetchLesson = () => {
     const lesson = useAppSelector(state => state.lesson.lesson);
     const modules = useAppSelector(state => state.modules.list);
     const catchError = useCatchError();
-    const fetchModules = useFuncFetchModules();
+    const fetchModules = useFuncFetchModules();    
 
   useEffect(() => {
     const fetchLesson = async () => {
