@@ -1,5 +1,4 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { exampleTasks } from "../../../libs/contants/example";
 export interface TaskState {
     task: TaskStringCmp | TaskWithAnswers | null,
     explanation: {
@@ -40,7 +39,7 @@ export interface TaskExplanation {
 const taskSlice = createSlice({
     name: 'task',
     initialState: {
-        task: exampleTasks[0],
+        task: null,
         explanation: {
             explanation: null,
             loading: false

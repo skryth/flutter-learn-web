@@ -6,9 +6,9 @@ import useCatchError from '../useCatchError';
 
 const useFetchModules = () => {
     const fetchModules = useFuncFetchModules();
-  useEffect(() => {
-    fetchModules();
-  }, [])
+    useEffect(() => {
+        fetchModules();
+    }, [])
 }
 
 export default useFetchModules;

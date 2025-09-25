@@ -4,14 +4,12 @@ import InputWithButton from '../../../components/InputWithButton'
 import ListModules from '../../../components/ListModules'
 import UserProgress from '../../../components/UserProgress'
 import ModalSearchContent from '../../../components/ModalSearchContent'
-import useFetchModules from '../../../hooks/modules/useFetchModules'
 import styles from './index.module.css'
 import useFetchProgress from '../../../hooks/progress/useFetchProgress'
 
 const MainPage = () => {
-  useFetchModules();
   useFetchProgress();
-  
+
   return (
     <Container>
       <div className={styles.top}>
