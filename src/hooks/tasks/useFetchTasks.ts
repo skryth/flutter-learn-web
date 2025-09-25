@@ -4,17 +4,21 @@ import { useParams } from 'react-router';
 import { useAppDispatch } from '../../app/store/hooks';
 import { setTask, setTaskLoading } from '../../app/store/slices/taskSlice';
 import useCatchError from '../useCatchError';
+import { useMinimumDelay } from '../useMinimumDelay';
 
 const useFetchTasks = () => {
   const {lesson_id} = useParams();
   const dispatch = useAppDispatch();
   const catchError = useCatchError();
+  const withMinimumDelay = useMinimumDelay(); 
 
   useEffect(() => {
     const fetchTasks = async () => {
       try {
         dispatch(setTaskLoading(true));
-        const tasks = await tasksRoute.getTask(lesson_id!);
+        const tasks = await withMinimumDelay(
+          tasksRoute.getTask(lesson_id!)
+        );
         if (tasks.length === 0) {
           dispatch(setTask(null));
         } else {

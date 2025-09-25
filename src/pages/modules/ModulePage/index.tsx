@@ -6,7 +6,6 @@ import ProgressBar from '../../../components/ProgressBar';
 import { Icon } from '../../../components/ui/Icon';
 import CircleButtonBack from '../../../components/CircleButtonBack';
 import styles from './index.module.css'
-import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading';
 import NotFoundData from '../../../components/NotFoundData';
 
 const ModulePage = () => {    
@@ -15,15 +14,7 @@ const ModulePage = () => {
   const module = useAppSelector(state => state.modules.list.find(
     m => m.id === id
   ));
-  if (modulesLoading) {
-    return (
-      <Container>
-        <ConditionalLoader isLoading={true}>
-          <div></div>
-        </ConditionalLoader>
-      </Container>
-    );
-  }
+  if (modulesLoading) return null;
 
   if (!module) return (
     <NotFoundData 

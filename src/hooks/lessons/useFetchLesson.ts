@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../app/store/hooks'
 import useCatchError from '../useCatchError';
 import lessonsRoute from '../../libs/models/API/routes/lessons';
 import { useFuncFetchModules } from '../modules/useFetchModules';
+import { useMinimumDelay } from '../useMinimumDelay';
 
 const useFetchLesson = () => {
     const {lesson_id} = useParams();
@@ -12,13 +13,16 @@ const useFetchLesson = () => {
     const lesson = useAppSelector(state => state.lesson.lesson);
     const modules = useAppSelector(state => state.modules.list);
     const catchError = useCatchError();
-    const fetchModules = useFuncFetchModules();    
+    const fetchModules = useFuncFetchModules();   
+    const withMinimumDelay = useMinimumDelay(); 
 
   useEffect(() => {
     const fetchLesson = async () => {
         try {
             dispatch(setLessonLoading(true))
-            const lesson = await lessonsRoute.getLesson(lesson_id!);
+            const lesson = await withMinimumDelay(
+                lessonsRoute.getLesson(lesson_id!)
+            );
             dispatch(setLesson(lesson))
             if (modules.length === 0) {
                 await fetchModules();

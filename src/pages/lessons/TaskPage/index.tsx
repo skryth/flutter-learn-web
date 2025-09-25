@@ -7,7 +7,6 @@ import EmulatorFlutter from '../../../components/EmulatorFlutter'
 import useUserTaskAnswer from '../../../hooks/tasks/useUserTaskAnswer'
 import useRenderTaskByType from '../../../hooks/useRenderTaskByType'
 import { taskTitle } from '../../../libs/contants/task'
-import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading'
 import NotFoundData from '../../../components/NotFoundData'
 import styles from './index.module.css'
 
@@ -18,15 +17,7 @@ const TaskPage = () => {
   const {checkAnswer, userAnswer, setUserAnswer, setUserAnswerText} = useUserTaskAnswer();  
   const {RenderTask} = useRenderTaskByType(task?.task_type);
 
-  if (tasksLoading) {
-    return (
-      <Container>
-        <ConditionalLoader isLoading={true}>
-          <div></div>
-        </ConditionalLoader>
-      </Container>
-    );
-  }
+  if (tasksLoading) return null;
 
   if (!task) return (
     <NotFoundData 

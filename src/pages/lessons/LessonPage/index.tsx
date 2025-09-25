@@ -7,12 +7,17 @@ import { Typography } from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button'
 import NotFoundData from '../../../components/NotFoundData';
 import styles from './index.module.css'
+import { useAppSelector } from '../../../app/store/hooks';
 
 const LessonPage = () => {
     const lesson = useFetchLesson();
+    const lessonLoading = useAppSelector(state => state.lesson.loading);
+    const modulesLoading = useAppSelector(state => state.modules.loading);
     const module = useModuleByLessonId(lesson?.id)
     const {goHome, goTask} = useLessonActions(lesson?.id);
 
+    if (lessonLoading || modulesLoading) return null;
+    
     if (!lesson) return (
         <NotFoundData 
             title='Урок не найден'
