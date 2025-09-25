@@ -2,10 +2,11 @@ import lessonsRoute from '../../libs/models/API/routes/lessons';
 import type { Lesson } from '../../app/store/slices/lessonSlice';
 import { useNavigate } from 'react-router';
 
-const useLessonActions = (id: Lesson['id']) => {
+const useLessonActions = (id?: Lesson['id']) => {
     const navigate = useNavigate();
-
+    
     const doneLesson = () => {
+        if (!id) return;
         lessonsRoute.setLessonIsDone(id);
     }
     const goHome = () => {
@@ -13,6 +14,7 @@ const useLessonActions = (id: Lesson['id']) => {
         navigate('/modules')
     }
     const goTask = () => {
+        if (!id) return;
         doneLesson();
         navigate(`/lesson/${id}/task`)
     }

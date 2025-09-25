@@ -1,3 +1,4 @@
+import { useAppSelector } from '../../../app/store/hooks'
 import useFetchTasks from '../../../hooks/tasks/useFetchTasks'
 import Container from '../../../components/ui/Container'
 import { Typography } from '../../../components/ui/Typography'
@@ -6,9 +7,9 @@ import EmulatorFlutter from '../../../components/EmulatorFlutter'
 import useUserTaskAnswer from '../../../hooks/tasks/useUserTaskAnswer'
 import useRenderTaskByType from '../../../hooks/useRenderTaskByType'
 import { taskTitle } from '../../../libs/contants/task'
-import styles from './index.module.css'
 import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading'
-import { useAppSelector } from '../../../app/store/hooks'
+import NotFoundData from '../../../components/NotFoundData'
+import styles from './index.module.css'
 
 const TaskPage = () => {
   useFetchTasks();
@@ -27,18 +28,12 @@ const TaskPage = () => {
     );
   }
 
-  if (!task) {
-    return (
-      <Container>
-        <Typography as='h1' weight='bold' size='xxl' style={{marginBlock: '2.1875rem 0.3125rem'}}>
-          Задача не найдена
-        </Typography>
-        <Typography size='md' style={{marginBottom: '2rem'}}>
-          Для этого урока нет доступных задач
-        </Typography>
-      </Container>
-    );
-  }
+  if (!task) return (
+    <NotFoundData 
+      title='Задача не найдена'
+      text='Для этого урока нет доступных задач' 
+    />
+  );
 
   return (
     <Container>
