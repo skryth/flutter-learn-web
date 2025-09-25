@@ -7,7 +7,6 @@ import { useAppSelector } from '../../store/hooks'
 
 const LessonLayout = () => {
   const lessonLoading = useAppSelector(state => state.lesson.loading);
-  const modulesLoading = useAppSelector(state => state.modules.loading);
   const tasksLoading = useAppSelector(state => state.task.loading);
   
   return (
@@ -15,7 +14,7 @@ const LessonLayout = () => {
         <CircleButtonBack to='/modules' />
         <HeaderLesson />
         <main>
-          <ConditionalLoader isLoading={lessonLoading || (tasksLoading || modulesLoading)}>
+          <ConditionalLoader isLoading={lessonLoading || tasksLoading}>
             <Outlet />
           </ConditionalLoader>
         </main>

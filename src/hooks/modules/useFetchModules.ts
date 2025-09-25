@@ -6,20 +6,12 @@ import useCatchError from '../useCatchError';
 import { useMinimumDelay } from '../useMinimumDelay';
 
 const useFetchModules = () => {
-    const fetchModules = useFuncFetchModules();
-    useEffect(() => {
-        fetchModules();
-    }, [])
-}
-
-export default useFetchModules;
-
-export const useFuncFetchModules = () => {
     const dispatch = useAppDispatch();
     const catchError = useCatchError();
     const withMinimumDelay = useMinimumDelay(); 
-
-    const fetchModules = async () => {
+    
+    useEffect(() => {
+        const fetchModules = async () => {
         try {
             dispatch(setModulesLoading(true))
             const modules = await withMinimumDelay(
@@ -32,6 +24,8 @@ export const useFuncFetchModules = () => {
             dispatch(setModulesLoading(false))
         }
     }
+        fetchModules();
+    }, [])
+}
 
-    return fetchModules;
-}  
+export default useFetchModules;

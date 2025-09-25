@@ -26,6 +26,9 @@ const RenderMarkdown: React.FC<RenderMarkdownProps> = ({
             p: ({children}) => (
                 <Typography weight='medium' color='light' style={{marginBottom: '1rem'}} children={children}/>
             ),
+            h1: ({children}) => (
+                <Typography as='h2' size='xl' weight='bold' style={{marginBottom: '1rem'}} children={children} />
+            ),
             h2: ({children}) => (
                 <Typography as='h3' size='lg' weight='bold' style={{marginBottom: '1rem'}} children={children} />
             ),

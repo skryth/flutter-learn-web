@@ -1,23 +1,20 @@
 import useFetchLesson from '../../../hooks/lessons/useFetchLesson';
-import useModuleByLessonId from '../../../hooks/lessons/useModuleByLessonId';
 import useLessonActions from '../../../hooks/lessons/useLessonActions';
 import Container from '../../../components/ui/Container';
 import RenderMarkdown from '../../../components/RenderMarkdown';
 import { Typography } from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button'
 import NotFoundData from '../../../components/NotFoundData';
-import styles from './index.module.css'
 import { useAppSelector } from '../../../app/store/hooks';
+import styles from './index.module.css'
 
 const LessonPage = () => {
     const lesson = useFetchLesson();
     const lessonLoading = useAppSelector(state => state.lesson.loading);
-    const modulesLoading = useAppSelector(state => state.modules.loading);
-    const module = useModuleByLessonId(lesson?.id)
     const {goHome, goTask} = useLessonActions(lesson?.id);
 
-    if (lessonLoading || modulesLoading) return null;
-    
+    if (lessonLoading) return null;
+
     if (!lesson) return (
         <NotFoundData 
             title='Урок не найден'
@@ -28,9 +25,8 @@ const LessonPage = () => {
   return (
     <Container>
         <Typography color='main' as='h1' size='xxl' weight='bold' style={{marginBlock: '2.1875rem 1rem'}}>
-            {module?.title}
+            {lesson.title}
         </Typography>
-        <Typography as='h2' size='xl' weight='bold' style={{marginBottom: '1rem'}}>{lesson.title}</Typography>
         <RenderMarkdown>{lesson.content as string}</RenderMarkdown>
         <div className={styles.buttons}>
             <Button onClick={goHome} bg='secondary' color='darkblue' paddingX='sm'>
