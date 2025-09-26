@@ -27,7 +27,7 @@ const LessonPage = () => {
         <Typography color='main' as='h1' size='xxl' weight='bold' style={{marginBlock: '2.1875rem 1rem'}}>
             {lesson.title}
         </Typography>
-        <RenderMarkdown>{lesson.content as string}</RenderMarkdown>
+        <RenderMarkdown>{lesson.content}</RenderMarkdown>
         <div className={styles.buttons}>
             <Button onClick={goHome} bg='secondary' color='darkblue' paddingX='sm'>
                 На главную
