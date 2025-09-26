@@ -1,22 +1,15 @@
-import React from 'react'
 import Container from '../ui/Container'
 import styles from './index.module.css'
 import Logo from '../Logo'
-interface HeaderMainProps {
-    children: React.ReactNode
-}
+import UserAvatar from '../UserAvatar'
 
-const HeaderMain: React.FC<HeaderMainProps> = ({
-    children
-}) => {
+const HeaderMain = () => {
   return (
     <header className={styles.header}>
       <Container>
         <div className={styles.content}>
           <Logo />
-          <div className={styles.right}>
-            {children}
-          </div>
+          <UserAvatar />
         </div>
       </Container>
     </header>

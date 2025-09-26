@@ -28,9 +28,7 @@ const HeaderLesson = () => {
                         </NavLink>
                     </nav>
                 </div>
-                <div className={styles.right}>
-                    <UserAvatar />
-                </div>
+                <UserAvatar />
             </div>
         </Container>
     </header>

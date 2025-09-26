@@ -11,9 +11,6 @@
     height: 1px;
     padding-block: 1rem;
 }
-.right {
-    display: none;
-}
 .nav {
     display: flex;
     position: absolute;
@@ -43,10 +40,4 @@
 }
 .link.active:hover {
     border-color: var(--color-main-hover);
-}
-    
-@media (min-width: 40rem) {
-    .right {
-        display: flex;
-    }
 }
