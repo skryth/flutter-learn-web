@@ -5,7 +5,10 @@ const accountRoute = {
     },
     signIn: (username: string, password: string) => {
         return API.post<AccountResponse>('/account/signin', { username, password })
-    }
+    },
+    signOut: () => {
+        API.post('/account/logout')
+    },
 }
 export default accountRoute;
 

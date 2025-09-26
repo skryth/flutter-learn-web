@@ -32,11 +32,17 @@ const useAuth = () => {
             catchError(e);
         }
     }
-
-    const signOut = () => {
-        dispatch(setUserLogin(null))
-        navigate('/');
-        // todo
+    
+    const signOut = async () => {
+        try {
+            await accountRoute.signOut();
+        } catch (e) {
+            catchError(e);
+        } finally {
+            dispatch(setUserLogin(null));
+            navigate('/');
+            toast.success('Вы вышли из аккаунта');
+        }
     }
 
     return {signIn, signUp, signOut}

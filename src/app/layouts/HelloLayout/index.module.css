@@ -3,3 +3,13 @@
     align-items: center;
     justify-content: center;
 }
+.row {
+    display: none;
+    align-items: center;
+    column-gap: 0.8125rem;
+}
+@media (min-width: 40rem) {
+    .row {
+        display: flex;
+    }
+}

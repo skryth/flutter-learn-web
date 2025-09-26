@@ -8,8 +8,10 @@ const HelloLayout = () => {
   return (
     <>
       <HeaderMain>
-        <Button bg='secondary' color='darkblue' to='/auth/signin'>Войти</Button>
-        <Button to='/auth/signup'>Начать</Button>
+        <div className={styles.row}>
+          <Button bg='secondary' color='darkblue' to='/auth/signin'>Войти</Button>
+          <Button to='/auth/signup'>Начать</Button>
+        </div>
       </HeaderMain>
       <main className={styles.main}>
         <Outlet />

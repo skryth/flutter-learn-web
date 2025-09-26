@@ -4,6 +4,7 @@ import Footer from '../../../components/Footer'
 import HeaderMain from '../../../components/HeaderMain'
 import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading'
 import useFetchModules from '../../../hooks/modules/useFetchModules'
+import UserAvatar from '../../../components/UserAvatar'
 
 const MainLayout = () => {
   useFetchModules();
@@ -11,7 +12,9 @@ const MainLayout = () => {
 
   return (
     <>
-      <HeaderMain />
+      <HeaderMain>
+        <UserAvatar />
+      </HeaderMain>
       <main>
         <ConditionalLoader isLoading={modulesLoading}>
           <Outlet />
