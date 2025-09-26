@@ -9,7 +9,7 @@ const preprocessMarkdown = (markdown: string): string => {
         let cleanCode = code;
         
         cleanCode = cleanCode
-        .replace(/`{1,}([^`\n]*?)`{1,}/g, '$1')
+        .replace(/`+/g, '')
         .replace(/\\"/g, '"')
         .replace(/\\\\/g, '\\')
         .replace(/\\n/g, '\n')
@@ -27,11 +27,15 @@ const preprocessMarkdown = (markdown: string): string => {
     });
 
     processed = processed.replace(/^(#{1,6})\s*([^#\n]+?)\s*#{0,6}\s*$/gm, '$1 $2');
+
     processed = processed.replace(/\n{3,}/g, '\n\n');
+
     processed = processed.replace(/^[\s]*[-*+]\s+/gm, '- ');
+
     processed = processed.replace(/[ \t]+$/gm, '');
+
     processed = processed.replace(/^-{3,}$/gm, '---');
 
     return processed.trim();
 };
-export default preprocessMarkdown;
+export default preprocessMarkdown
