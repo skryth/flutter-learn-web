@@ -11,7 +11,7 @@ const LessonLayout = () => {
   
   return (
     <>
-        <CircleButtonBack to='/modules' />
+        <CircleButtonBack />
         <HeaderLesson />
         <main>
           <ConditionalLoader isLoading={lessonLoading || tasksLoading}>

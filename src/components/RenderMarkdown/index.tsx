@@ -1,11 +1,10 @@
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Prism as PrismLight } from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import styles from './index.module.css'
 import { Typography } from '../ui/Typography';
 import preprocessMarkdown from '../../libs/helpers/preprocessMarkdown';
+import styles from './index.module.css'
 
 interface RenderMarkdownProps {
   children: string;

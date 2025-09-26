@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
 import styles from './index.module.css'
 import AnimatedOption from '../AnimatedOption'
-import type { ExampleFillCodeAnswer, ExampleFillCodeTask } from '../../libs/contants/example'
 import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
+import type { TaskAnswer, TaskWithAnswers } from '../../app/store/slices/taskSlice'
 
 interface FillCodeTaskProps {
   code: string
-  options: ExampleFillCodeTask['answers']
+  options: TaskWithAnswers['answers']
   onSelect: (value: UserSelectAnswer) => void
   selectedOption: UserSelectAnswer,
   checked: boolean
@@ -21,9 +21,9 @@ const FillCodeTask: React.FC<FillCodeTaskProps> = ({
 }) => {
   const codeParts = code.split('PLACEHOLDER_ANSWER')
   const answerSlotRef = useRef<HTMLSpanElement>(null)
-  const [animatingOption, setAnimatingOption] = useState<ExampleFillCodeAnswer | null>(null)
+  const [animatingOption, setAnimatingOption] = useState<TaskAnswer | null>(null)
 
-  const handleOptionSelect = (option: ExampleFillCodeAnswer) => {
+  const handleOptionSelect = (option: TaskAnswer) => {
     setAnimatingOption(option)
     
     let rect: DOMRect | null = null
