@@ -16,12 +16,12 @@ const useFetchLesson = () => {
   useEffect(() => {
     const fetchLesson = async () => {
         try {
+            if (lesson_id === lesson?.id) return;
             dispatch(setLessonLoading(true))
-            const lesson = await withMinimumDelay(
+            const lessonResponse = await withMinimumDelay(
                 lessonsRoute.getLesson(lesson_id!)
             );
-            dispatch(setLesson(lesson))
-
+            dispatch(setLesson(lessonResponse))
         } catch (error) {
             catchError(error)
         } finally {

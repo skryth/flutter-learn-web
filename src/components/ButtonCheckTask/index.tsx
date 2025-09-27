@@ -5,6 +5,7 @@ import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 import type { UserAnswerType } from '../../hooks/tasks/useUserTaskAnswer'
 import { useAppSelector } from '../../app/store/hooks'
+import useFetchNextLesson from '../../hooks/lessons/useFetchNextLesson'
 
 interface ButtonCheckTaskProps {
     userAnswerType: UserAnswerType
@@ -18,6 +19,7 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     disabled = false
 }) => {    
     const explanationText = useAppSelector(state => state.task.explanation.explanation?.explanation);
+    const fetchNextLesson = useFetchNextLesson()
 
     if (!userAnswerType) return (
         <Button 
@@ -32,10 +34,10 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     <>
         <div className={styles.row}>
             <Button
-                to='/modules' 
+                onClick={fetchNextLesson}
                 bg={userAnswerType}
             >
-                На главную
+                Дальше
             </Button>
             <div className={styles.rowMessage}>
                 <Icon name={userAnswerType === 'success' ? 'check' : userAnswerType} size={19} />

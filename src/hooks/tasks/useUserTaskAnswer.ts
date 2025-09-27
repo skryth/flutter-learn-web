@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useAppSelector } from '../../app/store/hooks';
 import useFetchCheckAnswer from './useFetchCorrectAnswer';
-import useCatchError from '../useCatchError';
 
 export type UserAnswerType = "success" | "wrong" | null;
 export interface UserSelectAnswer {
@@ -16,7 +15,6 @@ export interface UserAnswer {
 const useUserTaskAnswer = () => {
     const task = useAppSelector(state => state.task.task);
     const fetchCheckAnswer = useFetchCheckAnswer();
-    const catchError = useCatchError();
     
     const [userAnswer, setUserAnswer] = useState<UserAnswer>({
         answer: {
@@ -36,12 +34,8 @@ const useUserTaskAnswer = () => {
 
     const checkAnswer = async () => {
         if (!task?.task_type) return;
-        try {
-            const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
-            setUserAnswer(c => ({...c, answerType: explanation?.is_correct ? "success" : "wrong"}))
-        } catch (error) {
-            catchError(error)
-        }
+        const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
+        setUserAnswer(c => ({...c, answerType: explanation?.is_correct ? "success" : "wrong"}))
     }
 
   return {

@@ -9,12 +9,12 @@ interface EmulatorFlutterProps {
 const EmulatorFlutter: React.FC<EmulatorFlutterProps> = ({
     userAnswerType
 }) => {
-  const correctScreenImage = useAppSelector(state => state.task.explanation.explanation?.image);
+  const correctScreenImage = useAppSelector(state => state.task.explanation.explanation?.image);  
   return (
     <div className={styles.emulator}>
       <div className={styles.phoneFrame}>
         <div className={styles.screen}>
-          {Boolean(userAnswerType) && 
+          {Boolean(userAnswerType) && (
             userAnswerType === 'wrong' ? 
               <Image 
                 src={`example-${userAnswerType}`}
@@ -28,7 +28,7 @@ const EmulatorFlutter: React.FC<EmulatorFlutterProps> = ({
                 className={styles.result}
                 local={false}
               />
-          }
+          )}
         </div>
         <Image 
           src='phone' 
