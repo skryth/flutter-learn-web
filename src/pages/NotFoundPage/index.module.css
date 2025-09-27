@@ -1,0 +1,31 @@
+.container {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.content {
+  text-align: center;
+  max-width: 25rem;
+}
+
+.title {
+  font-size: clamp(5rem, 20vw, 7rem);
+  color: var(--color-main);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.subtitle {
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--color-text-light);
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
