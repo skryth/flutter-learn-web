@@ -123,7 +123,10 @@ const RenderMarkdown: React.FC<RenderMarkdownProps> = ({ children }) => {
                 borderRadius: '0.2rem',
                 fontSize: '0.9em',
                 lineHeight: '1.4',
-                margin: '1rem 0'
+                margin: '1rem 0',
+                overflowX: 'auto',
+                maxWidth: '100%'
+
               }}
             >
               {cleanCode}

@@ -28,17 +28,19 @@
 }
 
 .px-sm {
-    padding-inline: 1.25rem;
+    padding-inline: clamp(1rem, 3vw, 1.25rem);
 }
+
 .px-md {
-    padding-inline: 2.5rem;
+    padding-inline: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .py-sm {
-    padding-block: 0.6875rem;
+    padding-block: clamp(0.5rem, 2vw, 0.6875rem);
 }
+
 .py-md {
-    padding-block: 0.9375rem;
+    padding-block: clamp(0.75rem, 2.5vw, 0.9375rem);
 }
 .align-left {
     text-align: left;
