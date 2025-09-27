@@ -8,6 +8,7 @@ export interface Progress {
     completed_lessons: number,
     correct_answers: number,
     total_answers: number,
+    username: string
 }
 
 const progressSlice = createSlice({

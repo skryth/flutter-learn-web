@@ -1,14 +1,14 @@
+import useShareProgress from '../../../hooks/progress/useShareProgress'
 import { Typography } from '../../../components/ui/Typography'
 import Container from '../../../components/ui/Container'
 import InputWithButton from '../../../components/InputWithButton'
 import ListModules from '../../../components/ListModules'
-import UserProgress from '../../../components/UserProgress'
 import ModalSearchContent from '../../../components/ModalSearchContent'
+import Button from '../../../components/ui/Button'
 import styles from './index.module.css'
-import useFetchProgress from '../../../hooks/progress/useFetchProgress'
 
 const MainPage = () => {
-  useFetchProgress();
+  const shareProgress = useShareProgress();
 
   return (
     <Container>
@@ -20,7 +20,9 @@ const MainPage = () => {
       </div>
       <div className={styles.content}>
         <ListModules />
-        <UserProgress />
+        <div className={styles.progress}>
+          <Button onClick={shareProgress}>Поделиться прогрессом</Button>
+        </div>
       </div>
     </Container>
   )

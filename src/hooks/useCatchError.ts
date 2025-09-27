@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
 import ApiError from '../libs/models/API/ApiError';
-type ApiRouteType = 'account' | 'lessons' | 'tasks' | 'modules'
+type ApiRouteType = 'account' | 'lessons' | 'tasks' | 'modules' | 'progress'
 const useCatchError = () => {
     const navigate = useNavigate();
 
     const catchError = (error: unknown, type?: ApiRouteType) => {
         if (error instanceof ApiError) {
+            toast.dismissAll();
             switch (error.status) {
                 case 401:
                     if (type === 'account') {
@@ -19,7 +20,8 @@ const useCatchError = () => {
                 case 404:
                     toast.error(
                         type === 'account' ? 'Пользователь с таким логином не найден' :
-                        type === 'lessons' ? 'Урок не найден' : 'Задача не найдена'
+                        type === 'lessons' ? 'Урок не найден' :
+                        type === 'progress' ? 'Прогресс не найден' : 'Задача не найдена'
                     );
                     break;
                 case 409:
