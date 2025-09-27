@@ -24,7 +24,8 @@ const useFetchNextLesson = () => {
         dispatch(setLesson(lesson));   
         navigate(`/lesson/${lesson.id}`)     
     } catch (error) {
-        catchError(error)
+        catchError(error, 'lessons');
+        navigate('/modules')
     } finally {
         toastRef.current && toast.dismiss(toastRef.current)
     }

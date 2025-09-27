@@ -7,19 +7,17 @@ const useLessonActions = (id?: Lesson['id']) => {
     
     const doneLesson = () => {
         if (!id) return;
-        lessonsRoute.setLessonIsDone(id);
+        lessonsRoute.setLessonIsDone(id);        
     }
     const goHome = () => {
-        doneLesson();
         navigate('/modules')
     }
     const goTask = () => {
         if (!id) return;
-        doneLesson();
         navigate(`/lesson/${id}/task`)
     }
 
-    return {goHome, goTask}
+    return {goHome, goTask, doneLesson}
 }
 
 export default useLessonActions

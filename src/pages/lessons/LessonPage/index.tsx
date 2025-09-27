@@ -6,12 +6,14 @@ import { Typography } from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button'
 import NotFoundData from '../../../components/NotFoundData';
 import { useAppSelector } from '../../../app/store/hooks';
+import useScrollToBottom from '../../../hooks/useScrollToBottom';
 import styles from './index.module.css'
 
 const LessonPage = () => {
     const lesson = useFetchLesson();
     const lessonLoading = useAppSelector(state => state.lesson.loading);
-    const {goHome, goTask} = useLessonActions(lesson?.id);
+    const {goHome, goTask, doneLesson} = useLessonActions(lesson?.id);
+    const {tagRef} = useScrollToBottom(doneLesson)
 
     if (lessonLoading) return null;
 
@@ -28,7 +30,7 @@ const LessonPage = () => {
             {lesson.title}
         </Typography>
         <RenderMarkdown>{lesson.content}</RenderMarkdown>
-        <div className={styles.buttons}>
+        <div className={styles.buttons} ref={tagRef}>
             <Button onClick={goHome} bg='secondary' color='darkblue' paddingX='sm'>
                 На главную
             </Button>

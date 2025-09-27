@@ -28,6 +28,8 @@
     --brad-sm: 0.75rem;
     --brad-md: 1rem; 
 
+    --padding-card: 1.25rem 1.75rem 1rem 1.75rem; 
+
     --bshadow-primary: 0 0.25rem 0 0 var(--color-main-shadow);
     --bshadow-secondary: 0 0.25rem 0 0 var(--color-line);
     --bshadow-success: 0 0.25rem 0 0 var(--color-success-dark);
