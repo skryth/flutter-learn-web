@@ -9,7 +9,8 @@
     align-items: start;
     column-gap: 0.93575rem;
 }
-.disabled > p{
+.disabled > p,
+.disabled > img {
     pointer-events: none;
 }
 .cirlce {

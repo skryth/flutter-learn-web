@@ -25,7 +25,7 @@ const ChoiceTask: React.FC<ChoiceTaskProps> = ({
                 : 
                     <div className={styles.cirlce} onClick={() => onSelect(option)}></div>
                 }
-                <Typography color='darkblue' weight='bold' size='sm' uppercase onClick={() => onSelect(option)}>
+                <Typography weight='bold' size='sm' uppercase onClick={() => onSelect(option)}>
                     {option.answer_text}
                 </Typography>
             </div>
