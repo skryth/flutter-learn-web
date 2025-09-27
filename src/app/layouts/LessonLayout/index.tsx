@@ -6,14 +6,15 @@ import ConditionalLoader from '../../../components/ui/Loading/ConditionalLoading
 import { useAppSelector } from '../../store/hooks'
 
 const LessonLayout = () => {
-  const loading = useAppSelector(state => state.task.loading);
+  const lessonLoading = useAppSelector(state => state.lesson.loading);
+  const tasksLoading = useAppSelector(state => state.task.loading);
   
   return (
     <>
-        <CircleButtonBack to='/modules' />
+        <CircleButtonBack />
         <HeaderLesson />
         <main>
-          <ConditionalLoader isLoading={loading}>
+          <ConditionalLoader isLoading={lessonLoading || tasksLoading}>
             <Outlet />
           </ConditionalLoader>
         </main>

@@ -1,22 +1,18 @@
-import React from 'react'
 import Container from '../ui/Container'
 import styles from './index.module.css'
 import Logo from '../Logo'
 interface HeaderMainProps {
-    children: React.ReactNode
+  children: React.ReactNode
 }
-
 const HeaderMain: React.FC<HeaderMainProps> = ({
-    children
+  children
 }) => {
   return (
     <header className={styles.header}>
       <Container>
         <div className={styles.content}>
           <Logo />
-          <div className={styles.right}>
-            {children}
-          </div>
+          {children}
         </div>
       </Container>
     </header>

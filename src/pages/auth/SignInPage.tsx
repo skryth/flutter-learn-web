@@ -2,7 +2,6 @@ import AuthForm from "../../components/AuthForm"
 import useAuth from "../../hooks/useAuth"
 
 const SignInPage = () => {
-  // todo useAuth hook with on Submit func
   const {signIn} = useAuth();
   return (
     <AuthForm title='Войти' 

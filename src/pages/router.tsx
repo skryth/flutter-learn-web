@@ -10,6 +10,7 @@ import MainPage from "./modules/MainPage";
 import ModulePage from "./modules/ModulePage";
 import LessonPage from "./lessons/LessonPage";
 import TaskPage from "./lessons/TaskPage";
+import ProgressPage from "./ProgressPage";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
                 path: 'auth/signup',
                 element: <SignUpPage />
             },
+            {
+                path: 'progress/:token',
+                element: <ProgressPage />
+            }
         ]
     },
     {
@@ -53,7 +58,7 @@ export const router = createBrowserRouter([
                 element: <LessonPage />
             },
             {
-                path: ':lesson_id/task/:task_id',
+                path: ':lesson_id/task',
                 element: <TaskPage />
             }
         ]

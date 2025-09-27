@@ -1,21 +1,29 @@
 import { Link, useParams } from 'react-router';
 import Container from '../../../components/ui/Container';
 import { Typography } from '../../../components/ui/Typography';
-import styles from './index.module.css'
 import { useAppSelector } from '../../../app/store/hooks';
 import ProgressBar from '../../../components/ProgressBar';
 import { Icon } from '../../../components/ui/Icon';
 import CircleButtonBack from '../../../components/CircleButtonBack';
-import useExampleFetch from '../../../hooks/useExampleFetch';
+import styles from './index.module.css'
+import NotFoundData from '../../../components/NotFoundData';
 
 const ModulePage = () => {    
   const {id} = useParams();
-  // todo or fetch
-  useExampleFetch()
+  const modulesLoading = useAppSelector(state => state.modules.loading)
   const module = useAppSelector(state => state.modules.list.find(
     m => m.id === id
-  ))
-  const completed = module!.lessons.reduce((sum, c) => c.completed ? sum + 1 : sum , 0) 
+  ));
+  if (modulesLoading) return null;
+
+  if (!module) return (
+    <NotFoundData 
+      title='Модуль не найден'
+      text='Возможно, модуль находится в разработке. Пожалуйста, повторите попытку позже' 
+    />
+  );
+
+  const completed = module!.lessons.reduce((sum, c) => c.completed ? sum + 1 : sum , 0)
   
   return (
     <Container>

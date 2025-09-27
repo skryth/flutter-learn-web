@@ -1,10 +1,10 @@
-import type { UserSelectAnswer } from '../../hooks/useUserTaskAnswer'
-import type { ExampleFillCodeTask } from '../../libs/contants/example'
+import type { TaskWithAnswers } from '../../app/store/slices/taskSlice'
+import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 interface ChoiceTaskProps {
-  options: ExampleFillCodeTask['answers']
+  options: TaskWithAnswers['answers']
   onSelect: (value: UserSelectAnswer) => void
   selectedOption: UserSelectAnswer,
   checked: boolean

@@ -6,7 +6,7 @@ import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
 interface ModuleCardProps {
     id: Module['id'],
-    title: string,
+    title: Module['title'],
     order_index: Module['order_index']
     lessons: ModulesStateLesson[],
 }

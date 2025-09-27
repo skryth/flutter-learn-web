@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
-import { useAppSelector } from '../app/store/hooks';
+import { useAppSelector } from '../../app/store/hooks';
+import useFetchCheckAnswer from './useFetchCorrectAnswer';
 
 export type UserAnswerType = "success" | "wrong" | null;
 export interface UserSelectAnswer {
@@ -12,8 +13,8 @@ export interface UserAnswer {
 }
 
 const useUserTaskAnswer = () => {
-    // todo: task state to useFetchTask
-    const task = useAppSelector(state => state.task.task!);
+    const task = useAppSelector(state => state.task.task);
+    const fetchCheckAnswer = useFetchCheckAnswer();
     
     const [userAnswer, setUserAnswer] = useState<UserAnswer>({
         answer: {
@@ -31,24 +32,18 @@ const useUserTaskAnswer = () => {
             ...c, answer: {...c.answer, answer_text: value}
     })), []);
 
-    const callSetUserAnswerType = useCallback(
-        (value: UserAnswer['answerType']) => setUserAnswer(c => ({...c, answerType: value})), 
-    []);
-
-    const checkAnswer = () => {
-        if (task.task_type === 'string_cmp') {
-            callSetUserAnswerType(userAnswer.answer.answer_text === task.server_answer_by_id ? "success" : "wrong")
-        } else {
-            callSetUserAnswerType(userAnswer.answer.id === task.correct_id ? "success" : "wrong")
-        }
+    const checkAnswer = async () => {
+        if (!task?.task_type) return;
+        const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
+        setUserAnswer(c => ({...c, answerType: explanation?.is_correct ? "success" : "wrong"}))
     }
 
   return {
-    setUserAnswer: callSetUserAnswerFull, 
-    setUserAnswerText: callSetUserAnswerText,
-    checkAnswer,
-    userAnswer,
-    task
+        setUserAnswer: callSetUserAnswerFull, 
+        setUserAnswerText: callSetUserAnswerText,
+        checkAnswer,
+        userAnswer,
+        task
     }
 }
 

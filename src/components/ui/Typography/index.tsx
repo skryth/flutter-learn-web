@@ -28,6 +28,7 @@ export const Typography: React.FC<TypographyProps> = ({
     <Tag
       {...props}
       className={`
+        ${props.className}
         ${styles[`size-${size}`]}
         ${styles[`weight-${weight}`]}
         ${styles[`color-${color}`]}

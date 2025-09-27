@@ -1,17 +1,21 @@
 .size-sm {
-  font-size: 0.8125rem; /* 13px */
+  font-size: clamp(0.75rem, 2.5vw, 0.8125rem);
 }
+
 .size-md {
-  font-size: 1rem; /* 16px */
+  font-size: clamp(0.875rem, 3vw, 1rem);
 }
+
 .size-lg {
-  font-size: 1.125rem; /* 18px */
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
 }
+
 .size-xl {
-  font-size: 1.375rem; /* 22px */
+  font-size: clamp(1.125rem, 4vw, 1.375rem);
 }
+
 .size-xxl {
-  font-size: 1.75rem; /* 28*/
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
 }
 /* weight */
 .weight-regular {

@@ -19,9 +19,17 @@
 .avatar:active {
     transform: translateY(0);
 }
+.avatar > span {
+    display: none;
+}
 .modal {
     position: absolute;
     top: calc(100%);
     right: 0;
     z-index: 2;
+}
+@media (min-width: 40rem) {
+    .avatar > span {
+        display: inline-block;
+    }
 }

@@ -1,5 +1,4 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { exampleModules } from "../../../libs/contants/example";
 interface ModulesState {
     list: Module[],
     loading: boolean
@@ -20,8 +19,8 @@ export interface ModulesStateLesson {
 const modulesSlice = createSlice({
     name: 'modules',
     initialState: {
-        list: exampleModules,
-        loading: true
+        list: [],
+        loading: false
     } as ModulesState,
     reducers: {
         setModules: (state, action: PayloadAction<Module[]>) => {
@@ -33,7 +32,7 @@ const modulesSlice = createSlice({
     }
 })
 
-export const {setModulesLoading} = modulesSlice.actions;
+export const {setModules, setModulesLoading} = modulesSlice.actions;
 
 export default modulesSlice.reducer;
 

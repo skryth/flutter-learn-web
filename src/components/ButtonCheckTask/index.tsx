@@ -3,8 +3,9 @@ import Button from '../ui/Button'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
-import type { UserAnswerType } from '../../hooks/useUserTaskAnswer'
-const exampleExplanation = "Flutter представляет фреймворк от компании Google, который позволяет создавать кроссплатформенные приложения, которые могут использовать однин и тот же код. Спектр платформ широк - это веб-приложения, мобильные приложения под Android и iOS, графические приложения под настольные операционные системы Windows, MacOS, Linux, а также веб-приложения"
+import type { UserAnswerType } from '../../hooks/tasks/useUserTaskAnswer'
+import { useAppSelector } from '../../app/store/hooks'
+import useFetchNextLesson from '../../hooks/lessons/useFetchNextLesson'
 
 interface ButtonCheckTaskProps {
     userAnswerType: UserAnswerType
@@ -17,6 +18,9 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     checkAnswer,
     disabled = false
 }) => {    
+    const explanationText = useAppSelector(state => state.task.explanation.explanation?.explanation);
+    const fetchNextLesson = useFetchNextLesson()
+
     if (!userAnswerType) return (
         <Button 
             disabled={disabled}
@@ -30,10 +34,10 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
     <>
         <div className={styles.row}>
             <Button
-                to='/modules/' 
+                onClick={fetchNextLesson}
                 bg={userAnswerType}
             >
-                На главную
+                Дальше
             </Button>
             <div className={styles.rowMessage}>
                 <Icon name={userAnswerType === 'success' ? 'check' : userAnswerType} size={19} />
@@ -51,7 +55,7 @@ const ButtonCheckTask: React.FC<ButtonCheckTaskProps> = ({
                 Объяснение
             </Typography>
             <Typography color='light' weight='medium'>
-                {exampleExplanation}
+                {explanationText}
             </Typography>
         </div>
     </>

@@ -19,7 +19,7 @@ const HeaderLesson = () => {
                                 Материал
                             </Typography>
                         </NavLink>
-                        <NavLink to={`/lesson/${lesson_id}/task/1`} className={({isActive}) => `
+                        <NavLink to={`/lesson/${lesson_id}/task`} className={({isActive}) => `
                             ${styles.link} ${isActive ? styles.active : ''}`}
                         >
                             <Typography size='sm' weight='bold' color='placeholder' uppercase>
@@ -28,9 +28,7 @@ const HeaderLesson = () => {
                         </NavLink>
                     </nav>
                 </div>
-                <div className={styles.right}>
-                    <UserAvatar />
-                </div>
+                <UserAvatar />
             </div>
         </Container>
     </header>
