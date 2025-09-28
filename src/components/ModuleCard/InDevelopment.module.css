@@ -8,6 +8,9 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: relative;
 }
+.card > h3 {
+    padding-right: 3rem;
+}
 .row {
     display: flex;
     align-items: center;

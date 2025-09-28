@@ -3,6 +3,7 @@ import useFetchProgress from '../../hooks/progress/useFetchProgress'
 import { Typography } from '../../components/ui/Typography';
 import ProgressBar from '../../components/ProgressBar';
 import styles from './index.module.css'
+import { Image } from '../../components/ui/Image';
 
 const ProgressPage = () => {
     const {progress, loading} = useFetchProgress();
@@ -66,6 +67,7 @@ const ProgressPage = () => {
                         <Typography color='light'>успеха</Typography>
                     </div>
                 </div>
+                <Image src='flutter-progress' className={styles.img}/>
             </section>}
         </ConditionalLoader>
     )

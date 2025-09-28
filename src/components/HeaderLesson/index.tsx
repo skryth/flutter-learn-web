@@ -12,6 +12,13 @@ const HeaderLesson = () => {
             <div className={styles.row}>
                 <div className={styles.left}>
                     <nav className={styles.nav}>
+                        <NavLink to='/modules' end className={({isActive}) => `
+                            ${styles.link} ${isActive ? styles.active : ''}`}
+                        >
+                            <Typography size='sm' weight='bold' color='placeholder' uppercase>
+                                Главная
+                            </Typography>
+                        </NavLink>
                         <NavLink to={`/lesson/${lesson_id}`} end className={({isActive}) => `
                             ${styles.link} ${isActive ? styles.active : ''}`}
                         >

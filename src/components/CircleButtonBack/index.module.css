@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    padding: clamp(0.675rem, 2vw, 1.125rem) clamp(0.75rem, 2vw, 1.25rem);
+    padding: clamp(0.4rem, 2vw, 1.125rem) clamp(0.5rem, 2vw, 1.25rem);
     border-radius: 50%;
     box-shadow: 
         0 3px 0 0 #e3dddd,

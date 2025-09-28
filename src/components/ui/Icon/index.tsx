@@ -4,13 +4,14 @@ interface IconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const Icon: React.FC<IconProps> = ({ name, size = 24, ...props }) => {
+  const adaptiveSize = `clamp(${(size - (size * 0.2) )/ 16}rem, 4vw, ${size / 16}rem)`
   return (
     <img
       src={`/icons/${name}.svg`}
       alt={name}
       style={{
-        width: `${size / 16}rem`,
-        height: `${size / 16}rem`,
+        width: adaptiveSize,
+        height: adaptiveSize,
         objectFit: "contain",
         objectPosition: "center",
       }}

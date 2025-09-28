@@ -2,6 +2,7 @@
   max-width: 28.125rem;
   margin: 2rem auto;
   padding: 2rem;
+  position: relative;
 }
 
 .header {
@@ -53,6 +54,14 @@
 .error h2 {
   margin-bottom: 1rem;
 }
+.img {
+  position: absolute;
+  bottom: -1rem;
+  right: -10rem;
+  width: 14rem;
+  height: 14rem;
+  pointer-events: none;
+}
 
 @media (max-width: 48rem) {
   .section {
@@ -82,9 +91,19 @@
   .stat {
     padding: 1rem;
   }
+  .img {
+    right: 0;
+    width: 8rem;
+    height: 8rem;
+  }
 }
 @media (max-width: 21rem) {
   .stats {
     grid-template-columns: 1fr;
+  }
+  .img {
+    right: -1.5rem;
+    width: 6rem;
+    height: 6rem;
   }
 }
