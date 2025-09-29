@@ -47,18 +47,23 @@ const ModulePage = () => {
           </Typography>
         </div>
           <ProgressBar current={completed} max={module.lessons.length} />
-          <ul className={styles.list}>
-            {
-              sortedLessons.map(l => (
-                <div className={styles.row} key={l.id}>
-                  {l.completed ? <Icon name='check' size={20} /> : <div className={styles.circle}></div>}
-                  <Link to={`/lesson/${l.id}`}>
-                    <Typography size='lg' weight='bold'>{l.title}</Typography>
-                  </Link>
-                </div>
-              ))
-            } 
-          </ul>
+          {sortedLessons.length > 0 ?
+            <ul className={styles.list}>
+              {sortedLessons.map(l => (
+                  <div className={styles.row} key={l.id}>
+                    {l.completed ? <Icon name='check' size={20} /> : <div className={styles.circle}></div>}
+                    <Link to={`/lesson/${l.id}`}>
+                      <Typography size='lg' weight='bold'>{l.title}</Typography>
+                    </Link>
+                  </div>
+                ))} 
+            </ul>
+          : 
+            <div className={styles.row}>
+              <Typography>Данный модуль находится в разработке. Повторите попытку позже</Typography>
+              <Icon name='repair' size={18}/>
+            </div>
+          }
       </div>
     </Container>
   )
