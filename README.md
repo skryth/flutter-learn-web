@@ -76,7 +76,7 @@ Contributions are welcome! Please follow these steps:
 - **Frontend**: [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/)
 - **Code syntax**: [React Syntax Highlighter](https://www.npmjs.com/package/react-syntax-highlighter)
-- **Markdown рендеринг**: [React Markdown](https://www.npmjs.com/package/react-markdown)
+- **Markdown rendering**: [React Markdown](https://www.npmjs.com/package/react-markdown)
 
 ## License
 
