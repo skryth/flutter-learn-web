@@ -9,7 +9,7 @@ const Footer = () => {
             ©2025 Flutter Learn
         </Typography>
         <Typography color='light' weight='medium' as='span'>|</Typography>
-        <Link to={''}>
+        <Link to='/about'>
             <Typography color='light' weight='medium'>
                 О нас
             </Typography>

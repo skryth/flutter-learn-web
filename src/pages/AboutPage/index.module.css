@@ -1,0 +1,223 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.title {
+  color: var(--color-text-dark-blue);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  color: var(--color-text-light);
+  line-height: 1.4;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.aboutSection {
+  margin-bottom: 0.5rem;
+}
+
+.aboutCard {
+  background: var(--color-bg);
+  border: var(--border-secondary);
+  border-radius: var(--brad-md);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--bshadow-secondary);
+}
+
+.aboutCard Typography {
+  line-height: 1.6;
+}
+
+.teamSection {
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  color: var(--color-text-dark-blue);
+  margin-bottom: 1rem;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.teamCard {
+  background: var(--color-bg);
+  border: var(--border-secondary);
+  border-radius: var(--brad-md);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--bshadow-secondary);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.teamCard:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--bshadow-primary);
+}
+
+.teamInfo {
+  margin-bottom: 0.75rem;
+}
+
+.teamRole {
+  color: var(--color-text-dark-blue);
+  margin-bottom: 0.25rem;
+}
+
+.teamDescription {
+  line-height: 1.4;
+  color: var(--color-text-light);
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.skillTag {
+  background: var(--color-empty-progress);
+  color: var(--color-text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--brad-sm);
+  white-space: nowrap;
+}
+
+.openSourceSection {
+  margin-top: 0.5rem;
+}
+
+.openSourceCard {
+  background: var(--color-bg);
+  border: var(--border-secondary);
+  border-radius: var(--brad-md);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--bshadow-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.openSourceHeader Typography:first-child {
+  color: var(--color-text-dark-blue);
+  margin-bottom: 0.25rem;
+}
+
+.repoLinks {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.repoLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: var(--color-bg-hover);
+  border: var(--border-secondary);
+  border-radius: var(--brad-sm);
+  padding: 0.5rem 0.75rem;
+  min-width: 70px;
+  transition: var(--transition-button);
+  box-shadow: var(--bshadow-secondary);
+}
+
+.repoLink:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.75rem 1.5rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+  }
+  
+  .content {
+    gap: 1.5rem;
+  }
+  
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .teamCard {
+    padding: 0.875rem 1rem;
+  }
+  
+  .openSourceCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+  }
+  
+  .repoLinks {
+    align-self: stretch;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem 0.5rem 1rem;
+  }
+  
+  .aboutCard,
+  .teamCard,
+  .openSourceCard {
+    padding: 0.75rem 1rem;
+  }
+  
+  .skillTags {
+    gap: 0.25rem;
+  }
+  
+  .skillTag {
+    font-size: 0.6875rem;
+    padding: 0.125rem 0.375rem;
+  }
+  
+  .repoLinks {
+    gap: 0.5rem;
+  }
+  
+  .repoLink {
+    padding: 0.5rem 0.75rem;
+    min-width: 70px;
+  }
+}
