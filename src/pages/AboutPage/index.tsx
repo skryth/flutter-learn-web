@@ -3,35 +3,9 @@ import Button from '../../components/ui/Button'
 import Container from '../../components/ui/Container'
 import { Icon } from '../../components/ui/Icon'
 import { Typography } from '../../components/ui/Typography'
+import MemberCard from '../../components/MemberCard'
 import styles from './index.module.css'
-
-const teamMembers = [
-  {
-    role: 'Миллер Владимир',
-    description: 'Руководитель проекта',
-    skills: ['Менеджмент', 'Стратегия']
-  },
-  {
-    role: 'Шипилов Данила',
-    description: 'Frontend-разработчик',
-    skills: ['React', 'TypeScript']
-  },
-  {
-    role: 'Валиков Владислав',
-    description: 'Backend-разработчик',
-    skills: ['Rust', 'PostgreSQL']
-  },
-  {
-    role: 'Адам Станислав',
-    description: 'Контент-менеджер',
-    skills: ['Flutter', 'Копирайтинг']
-  },
-  {
-    role: 'Шатний Никита',
-    description: 'HR-менеджер',
-    skills: ['Аналитика', 'Стратегия']
-  }
-]
+import { teamMembers } from '../../libs/contants/about'
 
 const AboutPage = () => {
   return (
@@ -68,24 +42,8 @@ const AboutPage = () => {
             </Typography>
             
             <div className={styles.teamGrid}>
-              {teamMembers.map((member, index) => (
-                <div key={index} className={styles.teamCard}>
-                  <div className={styles.teamInfo}>
-                    <Typography weight="bold" size="md" className={styles.teamRole}>
-                      {member.role}
-                    </Typography>
-                    <Typography color="light" size="sm" className={styles.teamDescription}>
-                      {member.description}
-                    </Typography>
-                  </div>
-                  <div className={styles.skillTags}>
-                    {member.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className={styles.skillTag}>
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {teamMembers.map((member) => (
+                <MemberCard member={member} key={member.name} />
               ))}
             </div>
           </section>

@@ -11,6 +11,7 @@
     text-decoration: none;
 }
 .code {
+    max-width: 100%;
     background: var(--color-main-light);
     color: var(--color-code);
     padding: 0.3rem 0.4rem;
@@ -19,5 +20,7 @@
     font-weight: 500;
     word-break: break-word;
     overflow-wrap: break-word;
-    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
