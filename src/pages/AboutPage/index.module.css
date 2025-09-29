@@ -67,7 +67,6 @@
 }
 
 .teamCard {
-  background: var(--color-bg);
   border: var(--border-secondary);
   border-radius: var(--brad-md);
   padding: 1rem 1.25rem;
@@ -77,7 +76,6 @@
 
 .teamCard:hover {
   transform: translateY(-1px);
-  box-shadow: var(--bshadow-primary);
 }
 
 .teamInfo {
@@ -125,8 +123,13 @@
   justify-content: space-between;
   gap: 1.5rem;
 }
+.openSourceHeader {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
 
-.openSourceHeader Typography:first-child {
+.openSourceHeaderText {
   color: var(--color-text-dark-blue);
   margin-bottom: 0.25rem;
 }
@@ -138,16 +141,14 @@
 
 .repoLink {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  column-gap: 0.5rem;
   text-decoration: none;
   background: var(--color-bg-hover);
-  border: var(--border-secondary);
   border-radius: var(--brad-sm);
   padding: 0.5rem 0.75rem;
   min-width: 70px;
   transition: var(--transition-button);
-  box-shadow: var(--bshadow-secondary);
 }
 
 .repoLink:hover {

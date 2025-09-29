@@ -15,6 +15,16 @@ const ModulePage = () => {
   const module = useAppSelector(state => state.modules.list.find(
     m => m.id === id
   ));
+  const completed = useMemo(() => {
+    if (!module) return 0;
+    return module.lessons.reduce((sum, c) => c.completed ? sum + 1 : sum, 0);
+  }, [module]);
+
+  const sortedLessons = useMemo(() => {
+    if (!module) return [];
+    return [...module.lessons].sort((a, b) => a.order_index - b.order_index);
+  }, [module]);
+
   if (modulesLoading) return null;
 
   if (!module) return (
@@ -23,12 +33,6 @@ const ModulePage = () => {
       text='Возможно, модуль находится в разработке. Пожалуйста, повторите попытку позже' 
     />
   );
-
-  const completed = module.lessons.reduce((sum, c) => c.completed ? sum + 1 : sum , 0);
-  
-  const sortedLessons = useMemo(() => 
-      [...module.lessons].sort((a, b) => a.order_index - b.order_index)
-  , [module.lessons]);
   
   return (
     <Container>

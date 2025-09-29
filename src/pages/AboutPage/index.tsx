@@ -1,6 +1,7 @@
 import CircleButtonBack from '../../components/CircleButtonBack'
 import Button from '../../components/ui/Button'
 import Container from '../../components/ui/Container'
+import { Icon } from '../../components/ui/Icon'
 import { Typography } from '../../components/ui/Typography'
 import styles from './index.module.css'
 
@@ -92,12 +93,15 @@ const AboutPage = () => {
           <section className={styles.openSourceSection}>
             <div className={styles.openSourceCard}>
               <div className={styles.openSourceHeader}>
-                <Typography weight="bold" size="md">
-                  Open Source
-                </Typography>
-                <Typography color="light" size="sm">
-                  Присоединяйтесь к разработке
-                </Typography>
+                <Icon name='github' size={20}/>
+                <div className={styles.openSourceHeaderText}>
+                  <Typography weight="bold" size="md">
+                    Open Source
+                  </Typography>
+                  <Typography color="light" size="sm">
+                    Присоединяйтесь к разработке
+                  </Typography>
+                </div>
               </div>
               
               <div className={styles.repoLinks}>
@@ -107,6 +111,7 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <Icon name='github' size={20}/>
                   <Typography weight="bold" size="sm">Web</Typography>
                 </a>
                 
@@ -116,6 +121,7 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <Icon name='github' size={20}/>
                   <Typography weight="bold" size="sm">API</Typography>
                 </a>
               </div>
