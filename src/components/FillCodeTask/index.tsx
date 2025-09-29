@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import AnimatedOption from '../AnimatedOption'
 import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
 import type { TaskAnswer, TaskWithAnswers } from '../../app/store/slices/taskSlice'
+import { getCleanCode } from '../../libs/helpers/detectLanguage.ts'
 
 interface FillCodeTaskProps {
   code: string
@@ -19,17 +20,13 @@ const FillCodeTask: React.FC<FillCodeTaskProps> = ({
   selectedOption,
   checked
 }) => {
-  const codeParts = code.split('PLACEHOLDER_ANSWER')
+  const cleanCode = getCleanCode(code);
+  const codeParts = cleanCode.split('PLACEHOLDER_ANSWER')
   const answerSlotRef = useRef<HTMLSpanElement>(null)
   const [animatingOption, setAnimatingOption] = useState<TaskAnswer | null>(null)
 
   const handleOptionSelect = (option: TaskAnswer) => {
     setAnimatingOption(option)
-    
-    let rect: DOMRect | null = null
-    if (answerSlotRef.current) {
-      rect = answerSlotRef.current.getBoundingClientRect()
-    }
     
     setTimeout(() => {
       onSelect(option)

@@ -1,6 +1,7 @@
 import CircleButtonBack from '../../components/CircleButtonBack'
 import Button from '../../components/ui/Button'
 import Container from '../../components/ui/Container'
+import { Icon } from '../../components/ui/Icon'
 import { Typography } from '../../components/ui/Typography'
 import styles from './index.module.css'
 
@@ -89,15 +90,19 @@ const AboutPage = () => {
             </div>
           </section>
           
-          <section className={styles.openSourceSection}>
-            <div className={styles.openSourceCard}>
-              <div className={styles.openSourceHeader}>
-                <Typography weight="bold" size="md">
-                  Open Source
-                </Typography>
-                <Typography color="light" size="sm">
-                  Присоединяйтесь к разработке
-                </Typography>
+          <section className={styles.opensourceSection}>
+          <div className={styles.opensourceCard}>
+            <div className={styles.opensourceContent}>
+              <div className={styles.opensourceHeader}>
+                <Icon name='github' size={24} className={styles.githubIcon}/>
+                <div>
+                  <Typography weight="bold" size="lg" className={styles.opensourceTitle}>
+                    Open Source
+                  </Typography>
+                  <Typography color="light" size="sm" className={styles.opensourceSubtitle}>
+                    Присоединяйтесь к разработке
+                  </Typography>
+                </div>
               </div>
               
               <div className={styles.repoLinks}>
@@ -107,7 +112,8 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Typography weight="bold" size="sm">Web</Typography>
+                  <Icon name="link" size={16} />
+                  <Typography weight="medium" size="sm">Web Client</Typography>
                 </a>
                 
                 <a 
@@ -116,11 +122,13 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Typography weight="bold" size="sm">API</Typography>
+                  <Icon name="link" size={16} />
+                  <Typography weight="medium" size="sm">API Server</Typography>
                 </a>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
         </div>
       </div>
     </Container>

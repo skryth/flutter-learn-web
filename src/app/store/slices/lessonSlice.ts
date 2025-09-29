@@ -8,7 +8,8 @@ export interface Lesson {
     title: string,
     content: string,
     module_id: string,
-    status: boolean
+    status: boolean,
+    order_index: number
 }
 
 const lessonSlice = createSlice({
