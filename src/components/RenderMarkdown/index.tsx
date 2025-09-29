@@ -4,8 +4,8 @@ import { Prism as PrismLight } from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Typography } from '../ui/Typography';
 import preprocessMarkdown from '../../libs/helpers/preprocessMarkdown';
-import styles from './index.module.css'
 import detectLanguage from '../../libs/helpers/detectLanguage.ts';
+import styles from './index.module.css'
 
 interface RenderMarkdownProps {
   children: string;

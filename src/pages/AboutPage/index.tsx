@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import CircleButtonBack from '../../components/CircleButtonBack'
 import Button from '../../components/ui/Button'
 import Container from '../../components/ui/Container'
@@ -7,27 +8,29 @@ import styles from './index.module.css'
 
 const teamMembers = [
   {
-    role: 'Миллер Владимир',
+    name: 'Миллер Владимир',
     description: 'Руководитель проекта',
     skills: ['Менеджмент', 'Стратегия']
   },
   {
-    role: 'Шипилов Данила',
+    name: 'dnflnx',
+    link: 'https://github.com/flionx',
     description: 'Frontend-разработчик',
     skills: ['React', 'TypeScript']
   },
   {
-    role: 'Валиков Владислав',
+    name: 'JerryImMouse',
+    link: 'https://github.com/JerryImMouse',
     description: 'Backend-разработчик',
-    skills: ['Rust', 'PostgreSQL']
+    skills: ['Rust', 'Axum']
   },
   {
-    role: 'Адам Станислав',
+    name: 'Адам Станислав',
     description: 'Контент-менеджер',
     skills: ['Flutter', 'Копирайтинг']
   },
   {
-    role: 'Шатний Никита',
+    name: 'Шатний Никита',
     description: 'HR-менеджер',
     skills: ['Аналитика', 'Стратегия']
   }
@@ -71,9 +74,22 @@ const AboutPage = () => {
               {teamMembers.map((member, index) => (
                 <div key={index} className={styles.teamCard}>
                   <div className={styles.teamInfo}>
-                    <Typography weight="bold" size="md" className={styles.teamRole}>
-                      {member.role}
-                    </Typography>
+                    {member.link ?
+                      <a href={member.link} 
+                        target='_blank' 
+                        rel="noopener noreferrer" 
+                        className={styles.teamLink}
+                      >
+                        <Typography weight="bold" size="md">
+                          {member.name}
+                        </Typography>
+                        <Icon name='github' size={20}/>
+                      </a>
+                    :
+                      <Typography weight="bold" size="md" className={styles.teamRole}>
+                        {member.name}
+                      </Typography>
+                    }
                     <Typography color="light" size="sm" className={styles.teamDescription}>
                       {member.description}
                     </Typography>

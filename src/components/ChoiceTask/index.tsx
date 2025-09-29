@@ -1,5 +1,6 @@
 import type { TaskWithAnswers } from '../../app/store/slices/taskSlice'
 import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
+import shuffleArray from '../../libs/helpers/shuffleArray'
 import { Icon } from '../ui/Icon'
 import { Typography } from '../ui/Typography'
 import styles from './index.module.css'
@@ -18,7 +19,7 @@ const ChoiceTask: React.FC<ChoiceTaskProps> = ({
 }) => {
   return (
     <div className={styles.container}>
-        {options.map(option => (
+        {shuffleArray(options).map(option => (
             <div className={`${styles.row} ${checked ? styles.disabled : ''}`} key={option.id}>
                 {option.id === selectedOption.id ?
                     <Icon name='check' size={20}/> 

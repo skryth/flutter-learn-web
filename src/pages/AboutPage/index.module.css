@@ -82,6 +82,16 @@
   margin-bottom: 0.75rem;
 }
 
+.teamLink {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+.teamLink:hover {
+  text-decoration: underline;
+}
 .teamRole {
   color: var(--color-text-dark-blue);
   margin-bottom: 0.25rem;

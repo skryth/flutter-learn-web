@@ -6,6 +6,7 @@
 }
 
 .codeBlock {
+  max-width: 100%;
   border: 1px solid var(--color-line);
   border-radius: 0.75rem;
   overflow: hidden;
@@ -17,7 +18,7 @@
 .code {
   margin: 0;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3.5vw, 1.125rem);
   line-height: 1.4;
   color: var(--color-code);
   white-space: pre-wrap;
