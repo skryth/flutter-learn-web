@@ -11,6 +11,7 @@ import ModulePage from "./modules/ModulePage";
 import LessonPage from "./lessons/LessonPage";
 import TaskPage from "./lessons/TaskPage";
 import ProgressPage from "./ProgressPage";
+import AboutPage from "./AboutPage";
 
 export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
                 element: <TaskPage />
             }
         ]
+    },
+    {
+        path: '/about',
+        element: <AboutPage />
     },
     {
         path: '*',
