@@ -90,15 +90,16 @@ const AboutPage = () => {
             </div>
           </section>
           
-          <section className={styles.openSourceSection}>
-            <div className={styles.openSourceCard}>
-              <div className={styles.openSourceHeader}>
-                <Icon name='github' size={20}/>
-                <div className={styles.openSourceHeaderText}>
-                  <Typography weight="bold" size="md">
+          <section className={styles.opensourceSection}>
+          <div className={styles.opensourceCard}>
+            <div className={styles.opensourceContent}>
+              <div className={styles.opensourceHeader}>
+                <Icon name='github' size={24} className={styles.githubIcon}/>
+                <div>
+                  <Typography weight="bold" size="lg" className={styles.opensourceTitle}>
                     Open Source
                   </Typography>
-                  <Typography color="light" size="sm">
+                  <Typography color="light" size="sm" className={styles.opensourceSubtitle}>
                     Присоединяйтесь к разработке
                   </Typography>
                 </div>
@@ -111,8 +112,8 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon name='github' size={20}/>
-                  <Typography weight="bold" size="sm">Web</Typography>
+                  <Icon name="link" size={16} />
+                  <Typography weight="medium" size="sm">Web Client</Typography>
                 </a>
                 
                 <a 
@@ -121,12 +122,13 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon name='github' size={20}/>
-                  <Typography weight="bold" size="sm">API</Typography>
+                  <Icon name="link" size={16} />
+                  <Typography weight="medium" size="sm">API Server</Typography>
                 </a>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
         </div>
       </div>
     </Container>

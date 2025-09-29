@@ -108,53 +108,89 @@
   white-space: nowrap;
 }
 
-.openSourceSection {
-  margin-top: 0.5rem;
+.opensourceSection {
+  margin-top: 1rem;
 }
 
-.openSourceCard {
-  background: var(--color-bg);
-  border: var(--border-secondary);
-  border-radius: var(--brad-md);
-  padding: 1rem 1.25rem;
-  box-shadow: var(--bshadow-secondary);
+.opensourceCard {
+  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-hover));
+  border: 1px solid var(--color-line);
+  border-radius: var(--brad-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.opensourceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+}
+
+.opensourceContent {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-}
-.openSourceHeader {
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
+  gap: 2rem;
 }
 
-.openSourceHeaderText {
+.opensourceHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.githubIcon {
+  color: var(--color-text);
+}
+
+.opensourceTitle {
   color: var(--color-text-dark-blue);
   margin-bottom: 0.25rem;
 }
 
+.opensourceSubtitle {
+  color: var(--color-text-light);
+}
+
 .repoLinks {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .repoLink {
   display: flex;
   align-items: center;
-  column-gap: 0.5rem;
+  gap: 0.5rem;
   text-decoration: none;
-  background: var(--color-bg-hover);
-  border-radius: var(--brad-sm);
-  padding: 0.5rem 0.75rem;
-  min-width: 70px;
-  transition: var(--transition-button);
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--brad-md);
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  justify-content: center;
 }
 
 .repoLink:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.repoLink:hover Typography {
+  color: white;
+}
+
+.repoLink:hover .icon {
+  color: white;
+}
 @media (max-width: 768px) {
   .container {
     padding: 1rem 0.75rem 1.5rem;
@@ -180,17 +216,21 @@
     padding: 0.875rem 1rem;
   }
   
-  .openSourceCard {
+  .opensourceContent {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    text-align: left;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .opensourceHeader {
+    justify-content: center;
   }
   
   .repoLinks {
-    align-self: stretch;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: center;
   }
+
 }
 
 @media (max-width: 480px) {
