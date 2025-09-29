@@ -25,7 +25,6 @@
 
 .answerSlot {
   display: inline-block;
-  padding: 0.1rem 0.4rem;
   padding: 0.25rem 0.525rem;
   margin: 0 0.1rem;
   background: var(--color-bg);

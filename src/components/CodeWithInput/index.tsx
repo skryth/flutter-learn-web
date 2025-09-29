@@ -1,3 +1,4 @@
+import { getCleanCode } from '../../libs/helpers/detectLanguage.ts'
 import styles from './index.module.css'
 interface CodeWithInputProps {
     code: string,
@@ -13,7 +14,8 @@ const CodeWithInput: React.FC<CodeWithInputProps> = ({
     onEnter,
     disabled = false
 }) => {
-  const codeParts = code.split('PLACEHOLDER_ANSWER')
+  const cleanCode = getCleanCode(code);
+  const codeParts = cleanCode.split('PLACEHOLDER_ANSWER')
   
   return (
     <div className={styles.code}>

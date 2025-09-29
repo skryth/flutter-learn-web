@@ -5,6 +5,7 @@ import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Typography } from '../ui/Typography';
 import preprocessMarkdown from '../../libs/helpers/preprocessMarkdown';
 import styles from './index.module.css'
+import detectLanguage from '../../libs/helpers/detectLanguage.ts';
 
 interface RenderMarkdownProps {
   children: string;
@@ -69,52 +70,12 @@ const RenderMarkdown: React.FC<RenderMarkdownProps> = ({ children }) => {
             className={styles.link} 
           />
         ),
-        code: ({ node, inline, className, children, ...props }) => {
+        code: ({ node, className, children, ...props }) => {
           const match = /language-(\w+)/.exec(className || '');
           const codeString = String(children).replace(/\n$/, '');
-          
-          const cleanCode = codeString
-            .replace(/`+/g, '')
-            .replace(/\\"/g, '"')
-            .replace(/\\\\/g, '\\')
-            .replace(/\\n/g, '\n')
-            .replace(/\\t/g, '\t');
+          const {cleanCode, language} = detectLanguage(codeString, match)
 
-          const detectLanguage = (code: string): string => {
-            const trimmed = code.trim().toLowerCase();
-            
-            // Dart/Flutter
-            if (trimmed.includes('void main()') || 
-                trimmed.includes('import \'package:flutter') ||
-                trimmed.includes('widget build(') ||
-                trimmed.includes('class ') && trimmed.includes('extends stateless')) {
-              return 'dart';
-            }
-            
-            // Shell (flutter, dart, npm and etc)
-            if (trimmed.startsWith('flutter ') || 
-                trimmed.startsWith('dart ') ||
-                trimmed.startsWith('npm ') ||
-                trimmed.startsWith('cd ') ||
-                /^[a-z-]+\s+/.test(trimmed)) {
-              return 'bash';
-            }
-            
-            // JSON
-            if ((trimmed.startsWith('{') && trimmed.endsWith('}')) ||
-                (trimmed.startsWith('[') && trimmed.endsWith(']'))) {
-              return 'json';
-            }
-            
-            return 'text';
-          };
-
-          let language = match ? match[1].toLowerCase() : detectLanguage(cleanCode);
-          
-          if (language === 'cmd' || language === 'shell') language = 'bash';
-          if (language === 'js') language = 'javascript';
-
-          return !inline && cleanCode.includes('\n') ? (
+          return cleanCode.includes('\n') ? (
             <PrismLight
               style={darcula}
               language={language}
