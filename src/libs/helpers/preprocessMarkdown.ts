@@ -5,7 +5,7 @@ const preprocessMarkdown = (markdown: string): string => {
 
     processed = processed.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
-    processed = processed.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+    processed = processed.replace(/```(\w+)?\n([\s\S]*?)```/g, (lang, code) => {
         let cleanCode = code;
         
         cleanCode = cleanCode
@@ -21,7 +21,7 @@ const preprocessMarkdown = (markdown: string): string => {
 
     processed = processed.replace(/`{2,}([^`\n]+?)`{2,}/g, '`$1`');
 
-    processed = processed.replace(/(?<!`)`([^`\n]+?)`(?!`)/g, (match, content) => {
+    processed = processed.replace(/(?<!`)`([^`\n]+?)`(?!`)/g, (content) => {
         const cleaned = content.replace(/`+/g, '');
         return `\`${cleaned}\``;
     });

@@ -34,7 +34,12 @@ const useUserTaskAnswer = () => {
 
     const checkAnswer = async () => {
         if (!task?.task_type) return;
-        const explanation = await fetchCheckAnswer(userAnswer.answer.id!, task.task_type, userAnswer.answer.answer_text);
+        
+        const explanation = await fetchCheckAnswer(
+            task.task_type === 'string_cmp' ? task.answers[0].id : userAnswer.answer.id!, 
+            task.task_type, 
+            userAnswer.answer.answer_text
+        );
         setUserAnswer(c => ({...c, answerType: explanation?.is_correct ? "success" : "wrong"}))
     }
 

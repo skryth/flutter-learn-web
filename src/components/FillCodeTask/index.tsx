@@ -26,11 +26,6 @@ const FillCodeTask: React.FC<FillCodeTaskProps> = ({
   const handleOptionSelect = (option: TaskAnswer) => {
     setAnimatingOption(option)
     
-    let rect: DOMRect | null = null
-    if (answerSlotRef.current) {
-      rect = answerSlotRef.current.getBoundingClientRect()
-    }
-    
     setTimeout(() => {
       onSelect(option)
       setAnimatingOption(null)

@@ -19,7 +19,7 @@ const UserAvatar = () => {
             </Typography>
             <Icon name='avatar' size={40}/>
         </button>
-        {isShowModal && <div className={styles.modal} onMouseLeave={() => setIsShowModal(c => false)}>
+        {isShowModal && <div className={styles.modal} onMouseLeave={() => setIsShowModal(false)}>
             <ButtonWithIcon 
                 bg='secondary' 
                 color='input' 

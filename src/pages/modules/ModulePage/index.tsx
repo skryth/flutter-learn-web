@@ -7,6 +7,7 @@ import { Icon } from '../../../components/ui/Icon';
 import CircleButtonBack from '../../../components/CircleButtonBack';
 import styles from './index.module.css'
 import NotFoundData from '../../../components/NotFoundData';
+import { useMemo } from 'react';
 
 const ModulePage = () => {    
   const {id} = useParams();
@@ -23,7 +24,11 @@ const ModulePage = () => {
     />
   );
 
-  const completed = module!.lessons.reduce((sum, c) => c.completed ? sum + 1 : sum , 0)
+  const completed = module.lessons.reduce((sum, c) => c.completed ? sum + 1 : sum , 0);
+  
+  const sortedLessons = useMemo(() => 
+      [...module.lessons].sort((a, b) => a.order_index - b.order_index)
+  , [module.lessons]);
   
   return (
     <Container>
@@ -37,10 +42,10 @@ const ModulePage = () => {
             {module!.description}
           </Typography>
         </div>
-          <ProgressBar current={completed} max={module!.lessons.length} />
+          <ProgressBar current={completed} max={module.lessons.length} />
           <ul className={styles.list}>
             {
-              module!.lessons.map(l => (
+              sortedLessons.map(l => (
                 <div className={styles.row} key={l.id}>
                   {l.completed ? <Icon name='check' size={20} /> : <div className={styles.circle}></div>}
                   <Link to={`/lesson/${l.id}`}>

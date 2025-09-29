@@ -13,7 +13,8 @@ export interface Module {
 export interface ModulesStateLesson {
     id: string,
     title: string,
-    completed: boolean
+    completed: boolean,
+    order_index: number
 } 
 
 const modulesSlice = createSlice({
