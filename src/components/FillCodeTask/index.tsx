@@ -4,7 +4,6 @@ import AnimatedOption from '../AnimatedOption'
 import type { UserSelectAnswer } from '../../hooks/tasks/useUserTaskAnswer'
 import type { TaskAnswer, TaskWithAnswers } from '../../app/store/slices/taskSlice'
 import { getCleanCode } from '../../libs/helpers/detectLanguage.ts'
-import shuffleArray from '../../libs/helpers/shuffleArray.ts'
 
 interface FillCodeTaskProps {
   code: string
@@ -22,9 +21,9 @@ const FillCodeTask: React.FC<FillCodeTaskProps> = ({
   checked
 }) => {
   const cleanCode = getCleanCode(code);
-  const codeParts = cleanCode.split('PLACEHOLDER_ANSWER')
-  const answerSlotRef = useRef<HTMLSpanElement>(null)
-  const [animatingOption, setAnimatingOption] = useState<TaskAnswer | null>(null)
+  const codeParts = cleanCode.split('PLACEHOLDER_ANSWER');
+  const answerSlotRef = useRef<HTMLSpanElement>(null);
+  const [animatingOption, setAnimatingOption] = useState<TaskAnswer | null>(null);
 
   const handleOptionSelect = (option: TaskAnswer) => {
     setAnimatingOption(option)
@@ -52,7 +51,7 @@ const FillCodeTask: React.FC<FillCodeTaskProps> = ({
       </div>
     
       <div className={`${styles.options} ${checked ? styles.checked : ''}`}>
-        {shuffleArray(options).map((option) => (
+        {options.map((option) => (
           <AnimatedOption
             key={option.id}
             option={option.answer_text}

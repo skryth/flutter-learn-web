@@ -1,11 +1,12 @@
 export const teamMembers: Member[] = [
   {
     name: 'Миллер Владимир',
+    link: 'https://github.com/ttob9i3ka',
     description: 'Руководитель проекта',
     skills: ['Менеджмент', 'Стратегия']
   },
   {
-    name: 'dnflnx',
+    name: 'Шипилов Данила',
     link: 'https://github.com/flionx',
     description: 'Frontend-разработчик',
     skills: ['React', 'TypeScript']
@@ -18,11 +19,13 @@ export const teamMembers: Member[] = [
   },
   {
     name: 'Адам Станислав',
+    link: 'https://github.com/vixsantielus',
     description: 'Контент-менеджер',
     skills: ['Flutter', 'Копирайтинг']
   },
   {
     name: 'Шатний Никита',
+    link: 'https://github.com/KokosCmarsa',
     description: 'HR-менеджер',
     skills: ['Аналитика', 'Стратегия']
   }
@@ -30,7 +33,7 @@ export const teamMembers: Member[] = [
 
 export interface Member {
   name: string,
-  link?: string,
+  link: string,
   description: string,
   skills: string[]
 }
