@@ -2,9 +2,10 @@ import { useEffect } from 'react'
 import tasksRoute from '../../libs/models/API/routes/tasks'
 import { useParams } from 'react-router';
 import { useAppDispatch } from '../../app/store/hooks';
-import { setTask, setTaskLoading } from '../../app/store/slices/taskSlice';
+import { setTask, setTaskLoading, type TaskAnswer } from '../../app/store/slices/taskSlice';
 import useCatchError from '../useCatchError';
 import { useMinimumDelay } from '../useMinimumDelay';
+import shuffleArray from '../../libs/helpers/shuffleArray';
 
 const useFetchTasks = () => {
   const {lesson_id} = useParams();
@@ -22,7 +23,10 @@ const useFetchTasks = () => {
         if (tasks.length === 0) {
           dispatch(setTask(null));
         } else {
-          dispatch(setTask(tasks[0]));
+          dispatch(setTask({
+            ...tasks[0],
+            answers: shuffleArray(tasks[0].answers) as TaskAnswer[] 
+          }));
         }
       } catch (error) {
         catchError(error);

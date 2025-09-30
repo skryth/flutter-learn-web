@@ -11,25 +11,19 @@ const MemberCard: React.FC<MemberCardProps> = ({
   return (
     <div className={styles.card}>
         <div className={styles.info}>
-        {member.link ?
             <a href={member.link} 
             target='_blank' 
             rel="noopener noreferrer" 
             className={styles.link}
             >
-            <Typography weight="bold" size="md" color='darkblue'>
-                {member.name}
-            </Typography>
-            <Icon name='github' size={20}/>
+                <Typography weight="bold" size="md" color='darkblue'>
+                    {member.name}
+                </Typography>
+                <Icon name='github' size={18}/>
             </a>
-        :
-            <Typography weight="bold" size="md" className={styles.name}>
-                {member.name}
+            <Typography color="light" size="sm" className={styles.description}>
+                {member.description}
             </Typography>
-        }
-        <Typography color="light" size="sm" className={styles.description}>
-            {member.description}
-        </Typography>
         </div>
         <div className={styles.tags}>
             {member.skills.map((skill, skillIndex) => (
