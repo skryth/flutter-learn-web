@@ -2,7 +2,7 @@
 
 Flutter Learning Platform is a modern educational platform for learning Flutter and Dart, providing interactive lessons, practical assignments, and progress tracking. This repository contains the frontend part of the project.
 
-📍Live Preview(soon)
+📍[Live Preview](https://flern.website/)
 
 ## Features
 
